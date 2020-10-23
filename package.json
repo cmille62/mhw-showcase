@@ -1,0 +1,12 @@
+{
+  "name": "mhw-showcase",
+  "version": "1.0.0",
+  "description": "Miller Hardware Showcase",
+  "repository": "https://github.com/cmille62/mhw-showcase",
+  "author": "Clayton Miller <clayton@milleracehardware.com",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start:mongo": "docker-compose up -d"
+  }
+}

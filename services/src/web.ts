@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import bodyParserXml from "body-parser-xml";
 import cors from "cors";
-import routes from "./routes/";
+import routes from "./routes";
 import { establishMongoDBConnection } from "./db";
 import { DB_NAME } from "./utils";
 

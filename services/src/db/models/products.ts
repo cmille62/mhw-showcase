@@ -1,10 +1,10 @@
 import Mongoose from "mongoose";
-import { ProductSchema } from "../schema";
-import { ProductType } from "../types";
+import { ProductsSchema } from "../schema";
+import { ProductsType } from "../types";
 
 
-const schema = new Mongoose.Schema(ProductSchema, { collection: "products" });
+const schema = new Mongoose.Schema(ProductsSchema, { collection: "products" });
 
-export const Groups = Mongoose.model<ProductType>("products", schema);
+export const Products = Mongoose.model<ProductsType>("products", schema);
 
-export default Groups;
+export default Products;
