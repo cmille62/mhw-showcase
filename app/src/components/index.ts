@@ -1,0 +1,1 @@
+export { Firearms } from "./firearms";

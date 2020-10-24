@@ -5,7 +5,7 @@ const _port = process.env.PORT;
 const _mongo_url = process.env.MONGO_URL;
 const _mongo_db = process.env.MONGO_DB;
 
-export const PORT = _port || 8080;
+export const PORT = parseInt(_port) || 8080;
 
 // MongoDB Variables -- 
 export const MONGO_URL = _mongo_url || "mongodb://mongo:27017";

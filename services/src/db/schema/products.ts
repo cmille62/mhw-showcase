@@ -13,6 +13,7 @@ export const ProductsSchema = {
   qoh: Number,
 
   attributes: Object,
+  
 
 
 
@@ -21,4 +22,4 @@ export const ProductsSchema = {
   created: { type: Date, default: Date.now },
 };
 
-export default GroupsSchema;
+export default ProductsSchema;

@@ -1,0 +1,27 @@
+$padding: 16px;
+
+.finder-heading {
+ padding:$padding;
+}
+
+.finder-body {
+    padding:$padding;
+
+    > div {
+        display:flex;
+        flex-direction: column;
+
+        padding:$padding;
+    }
+    .matching {
+        display:flex;
+        justify-content: space-between;
+    }
+    
+}
+.finder-controls {
+    margin: $padding;
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
