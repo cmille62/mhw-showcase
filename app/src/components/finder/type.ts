@@ -1,3 +1,16 @@
+import { DropdownProps } from "./inputs/dropdown";
+
+export interface InputOption<T> {
+  label: string;
+  value: T | null;
+  [key: string]: any;
+}
+
+export interface InputProps<T> {
+  onChange: (value: T) => void;
+  [key: string]: any;
+}
+
 export interface FinderSearchableSchema {
   /**
    * The Absolute path of the searchable term in the schema
@@ -5,14 +18,11 @@ export interface FinderSearchableSchema {
   path: string;
 
   /**
-   * The title shown to the user
-   */
-  title: string;
-
-  /**
    * The Input that will be utilized
    */
-  input: React.ReactNode;
+  input: string;
+
+  props: Partial<DropdownProps>;
 }
 
 export interface FinderSchema {
