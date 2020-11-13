@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { RouterStore, SettingsStore } from "../../../stores";
+import { ImportStore, RouterStore } from "../../../stores";
 import { SideNavigation } from "../navigation";
 import { ContentPane, Navigation, NavigationLink } from "../../common";
 import { Routes } from "../../../helpers";
@@ -8,9 +8,10 @@ import { inject, observer } from "mobx-react";
 
 interface Props {
   routerStore: RouterStore;
+  importStore: ImportStore;
 }
 
-@inject("routerStore")
+@inject("routerStore", "importStore")
 @observer
 export class ImportPage extends Component<Props, {}> {
   render() {
