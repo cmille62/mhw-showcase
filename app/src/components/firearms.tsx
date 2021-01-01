@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Finder, FinderSchema, Dropdown } from "./finder";
+import { Finder, FinderSchema } from "./finder";
 
 const schema: FinderSchema = {
   type: "Firearms",

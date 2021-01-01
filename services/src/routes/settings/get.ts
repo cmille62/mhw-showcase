@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Settings, SettingsType } from "../../db";
+import { Settings } from "../../db";
 
 export async function getSettings(_: Request, response: Response) {
   try {

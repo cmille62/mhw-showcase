@@ -11,3 +11,5 @@ export { RouterStore } from 'mobx-react-router';
 export { RootStore } from './root';
 export { SettingsStore } from './settings.store';
 export { ImportStore } from "./import.store";
+export { PreferencesStore } from "./preferences.store";
+

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { ImportStore, RouterStore } from "../../../stores";
 import { SideNavigation } from "../navigation";
 import { ContentPane, Navigation, NavigationLink } from "../../common";
-import { Routes } from "../../../helpers";
+import { Routes } from "../../../utils";
 import ImportForm from "./import.form";
 import { inject, observer } from "mobx-react";
 

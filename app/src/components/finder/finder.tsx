@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useEffect } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { Button, Card, Pane, Heading, Paragraph } from "evergreen-ui";
 import { FinderSchema, FinderSearchableSchema } from "./type";
 

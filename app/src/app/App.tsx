@@ -3,9 +3,9 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { inject, observer } from "mobx-react";
 import { ImportPage, SettingsPage } from "../components/admin";
 import { RouterStore } from "../stores";
-import { BaseRoute, Routes } from "../helpers";
+import { BaseRoute, Routes } from "../utils";
 
-import { HomePage } from "../components";
+import { HomePage, ShowcasePage } from "../components";
 import { Header, Loading } from "../components/common";
 
 import "./style.scss";
@@ -50,6 +50,9 @@ class App extends React.Component<Props, State> {
             roles={Routes.Home.roles}
             component={HomePage}
           />
+
+          {/************** Application Pages ****************/}
+          <Route path={Routes.Showcase.path} component={ShowcasePage} />
 
           {/******************** Settings ********************/}
           <Route path={Routes.Admin.Import.path} component={ImportPage} />

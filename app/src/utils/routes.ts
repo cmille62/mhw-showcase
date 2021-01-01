@@ -1,4 +1,4 @@
-import { REACT_APP_ROOT_URL, ROLES } from "../utils/constants";
+import { REACT_APP_ROOT_URL, ROLES } from "./constants";
 
 export const formatRoute = (path: string) => {
   return `${REACT_APP_ROOT_URL}${path}`;
@@ -11,6 +11,10 @@ export const BaseRoute = {
 export const Routes = {
   Home: {
     path: formatRoute("/home"),
+    roles: [],
+  },
+  Showcase: {
+    path: formatRoute("/view"),
     roles: [],
   },
   Admin: {

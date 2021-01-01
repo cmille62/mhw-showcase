@@ -1,8 +1,7 @@
 import * as React from "react";
-import { Button, Heading, Pane, Text } from "evergreen-ui";
+import { Button, Heading, Pane } from "evergreen-ui";
 import { inject, observer } from "mobx-react";
 import { ImportStore } from "../../../stores";
-import { get } from "lodash";
 import { Table } from "../../common/table";
 
 interface Props {

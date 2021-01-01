@@ -2,7 +2,7 @@ import * as React from "react";
 import { Pane, Button, Heading } from "evergreen-ui";
 import { observer } from "mobx-react";
 import { RouterStore } from "../../../stores";
-import { Routes } from "../../../helpers";
+import { Routes } from "../../../utils";
 
 interface Props {
   routerStore: RouterStore;
