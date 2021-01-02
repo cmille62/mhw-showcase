@@ -11,7 +11,7 @@ const rootStore = new RootStore();
 ReactDOM.render(
   <Provider {...rootStore.getProviderStores()}>
     <Router history={rootStore.history}>
-      <App routerStore={rootStore.routerStore} />
+      <App />
     </Router>
   </Provider>,
   document.getElementById("root")

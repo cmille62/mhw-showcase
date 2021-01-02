@@ -1,5 +1,5 @@
 export interface Settings {
-  id: string;
+  _id: string;
   live: boolean;
 }
 

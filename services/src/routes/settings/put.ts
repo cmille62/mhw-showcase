@@ -5,6 +5,7 @@ export async function putSettings(request: any, response: any) {
     const _id = request.params.id;
     const config = request.body;
   
+    console.log(config);
     if (!_id) {
       response.status(400).send(invalidParameters("id"));
       return;

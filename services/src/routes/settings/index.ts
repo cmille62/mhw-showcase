@@ -6,7 +6,7 @@ import { getSettings } from "./get";
 import { putSettings } from "./put";
 
 router.get("/", getSettings);
-router.put("/", putSettings);
+router.put("/:id", putSettings);
 
 
 export default { router };

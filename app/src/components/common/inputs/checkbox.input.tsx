@@ -7,7 +7,12 @@ export const CheckboxInput: FunctionComponent<InputProps<boolean>> = (
 ) => {
   const { value, title, onChange, disabled } = props;
   return (
-    <Pane display="flex" alignItems="center" >
+    <Pane display="flex" alignItems="center">
+      {title && (
+        <Text paddingRight={8} size={300}>
+          {title}
+        </Text>
+      )}
       <Checkbox
         checked={value}
         onChange={({ target: { checked } }) =>
@@ -15,7 +20,6 @@ export const CheckboxInput: FunctionComponent<InputProps<boolean>> = (
         }
         disabled={disabled}
       />
-      {title && <Text paddingLeft={5} size={300}>{title}</Text>}
     </Pane>
   );
 };

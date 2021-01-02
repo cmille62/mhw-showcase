@@ -14,7 +14,7 @@ export const get = async function () {
 };
 
 export const update = async function (settings: Settings) {
-  const url = `${REACT_APP_API_ROOT_URL}/settings`;
+  const url = `${REACT_APP_API_ROOT_URL}/settings/${settings._id}`;
 
   try {
     return await axios.put(url, settings, postConfig);

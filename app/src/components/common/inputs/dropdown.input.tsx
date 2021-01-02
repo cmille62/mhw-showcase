@@ -3,7 +3,7 @@ import { Select, Pane, Text } from "evergreen-ui";
 import { EnumInputProps } from "./index";
 
 export const formatOptions = (options: string[] | number[]) => {
-  const result: { value: string, title: string}[] = [];
+  const result: { value: string; title: string }[] = [];
 
   options.forEach((option: string | number) =>
     result.push({ value: option.toString(), title: option.toString() })
@@ -18,6 +18,11 @@ export const DropdownInput: FunctionComponent<
   const { value, title, onChange, disabled, options } = props;
   return (
     <Pane display="flex" alignItems="center" marginY={5}>
+      {title && (
+        <Text paddingRight={8} size={300}>
+          {title}
+        </Text>
+      )}
       <Select
         value={value}
         onChange={({ target: { value } }) =>
@@ -29,11 +34,6 @@ export const DropdownInput: FunctionComponent<
           <option key={option.value}>{option.title}</option>
         ))}
       </Select>
-      {title && (
-        <Text paddingLeft={5} size={300}>
-          {title}
-        </Text>
-      )}
     </Pane>
   );
 };
