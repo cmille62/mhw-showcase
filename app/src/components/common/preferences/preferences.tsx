@@ -1,10 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { observer } from "mobx-react";
 import { Pane } from "evergreen-ui";
-import { Checkbox, Dropdown } from "../inputs";
+import { Checkbox, Dropdown, formatOptions } from "../inputs";
 import { useRootStore } from "../../../stores";
 import { ITEMS_PER_PAGE_LIST, SORT_BY_LIST } from "../../../typings";
-import { formatOptions } from "../inputs/dropdown.input";
 import { set } from "lodash";
 
 export const PreferencesList: FunctionComponent = observer(() => {

@@ -1,16 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Select, Pane, Text } from "evergreen-ui";
-import { EnumInputProps } from "./index";
-
-export const formatOptions = (options: string[] | number[]) => {
-  const result: { value: string; title: string }[] = [];
-
-  options.forEach((option: string | number) =>
-    result.push({ value: option.toString(), title: option.toString() })
-  );
-
-  return result;
-};
+import { EnumInputProps } from "../index";
 
 export const DropdownInput: FunctionComponent<
   EnumInputProps<string | number>

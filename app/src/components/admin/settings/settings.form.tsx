@@ -6,6 +6,7 @@ import { useRootStore } from "../../../stores";
 
 const SettingsForm: FunctionComponent = observer(() => {
   const { settingsStore } = useRootStore();
+  
   useEffect(() => {
     SettingsAPI.get().then((response) => {
       if (response.status === 200) {
@@ -13,7 +14,7 @@ const SettingsForm: FunctionComponent = observer(() => {
         settingsStore.setPreview(response.data);
       }
     });
-  }, []);
+  }, [settingsStore]);
 
   const setSettings = async () => {
     const response = await SettingsAPI.update(settingsStore.preview);

@@ -45,6 +45,7 @@ export class SideNavigation extends React.Component<Props, {}> {
         display="flex"
         flexDirection="column"
         minWidth={150}
+        height="100%"
         marginBottom="auto"
         borderRight
       >

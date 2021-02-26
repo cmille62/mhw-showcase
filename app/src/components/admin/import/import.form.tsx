@@ -1,12 +1,9 @@
-import * as React from "react";
+import React, { FunctionComponent } from "react";
 import { Button, Heading, Pane } from "evergreen-ui";
-import { inject, observer } from "mobx-react";
-import { ImportStore } from "../../../stores";
+import { observer } from "mobx-react";
+import { ImportStore, useRootStore } from "../../../stores";
 import { Table } from "../../common/table";
-
-interface Props {
-  importStore: ImportStore;
-}
+import { FileUploadButton } from "../../common/inputs";
 
 const columns = [
   { title: "SKU", key: "sku", path: "sku" },
@@ -14,40 +11,32 @@ const columns = [
   { title: "Description", key: "description", path: "sku" },
 ];
 
-@inject("importStore")
-@observer
-class ImportForm extends React.Component<Props, {}> {
-  render() {
-    const { preview } = this.props.importStore;
-    return (
-      <Pane
-        id="settingsPane"
-        display="flex"
-        flexDirection="column"
-        marginBottom="auto"
-        marginLeft={20}
-      >
-        <Pane display="flex" flexDirection="row">
-          <Heading size={800} marginBottom={10}>
-            Import Products
-          </Heading>
-          <Button
-            id="update"
-            appearance="primary"
-            fontSize={12}
-            marginLeft="auto"
-            marginBottom={10}
-            onClick={() => {
-              // this.setSettings();
-            }}
-          >
-            Import
-          </Button>
-        </Pane>
-        <Table {...{columns, data: preview.data}} />
+const ImportForm: FunctionComponent = observer(() => {
+  const { importStore } = useRootStore();
+  return (
+    <Pane
+      id="settingsPane"
+      display="flex"
+      flexDirection="column"
+      marginBottom="auto"
+      marginLeft={20}
+      width="100%"
+    >
+      <Pane display="flex" flexDirection="row">
+        <Heading size={800} marginBottom={10}>
+          Import Products
+        </Heading>
+        <FileUploadButton
+          title="Import"
+          accept=".csv"
+          onChange={(event) => {
+            console.log(event);
+          }}
+        />
       </Pane>
-    );
-  }
-}
+      <Table {...{ columns, data: importStore.preview.data }} />
+    </Pane>
+  );
+});
 
 export default ImportForm;

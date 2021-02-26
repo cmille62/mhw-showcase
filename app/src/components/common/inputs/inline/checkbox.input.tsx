@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Checkbox, Pane, Text } from "evergreen-ui";
-import { InputProps } from "./index";
+import { InputProps } from "../index";
 
 export const CheckboxInput: FunctionComponent<InputProps<boolean>> = (
   props: InputProps<boolean>
