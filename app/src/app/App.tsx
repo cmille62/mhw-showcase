@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { ImportPage, SettingsPage } from "../components/admin";
+import { AddPage, ImportPage, SettingsPage } from "../components/admin";
 import { BaseRoute, Routes } from "../utils";
 
 import { HomePage, ShowcasePage } from "../components";
@@ -19,19 +19,19 @@ const App: React.FunctionComponent = () => {
           path={BaseRoute.path}
           render={() => <Redirect to={Routes.Home.path} />}
         />
-        <Route
-          path={Routes.Home.path}
-          roles={Routes.Home.roles}
-          component={HomePage}
-        />
+        <Route {...Routes.Home} component={HomePage} />
 
         {/************** Application Pages ****************/}
-        <Route path={Routes.Showcase.path} component={ShowcasePage} />
+        <Route {...Routes.Showcase} component={ShowcasePage} />
 
-        {/******************** Settings ********************/}
-        <Route path={Routes.Admin.Import.path} component={ImportPage} />
+        {/******************** Administration ********************/}
+        <Route {...Routes.Admin.Import} component={ImportPage} />
 
-        <Route path={Routes.Admin.Settings.path} component={SettingsPage} />
+        <Route {...Routes.Admin.Settings} component={SettingsPage} />
+
+        <Route {...Routes.Admin.Add} component={AddPage} />
+
+        {/******************** Redirect ********************/}
         <Route render={() => <Redirect to={Routes.Home.path} />} />
       </Switch>
     </React.Fragment>

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Button, Heading, Pane } from "evergreen-ui";
 import { observer } from "mobx-react";
-import { ImportStore, useRootStore } from "../../../stores";
+import { useRootStore } from "../../../stores";
 import { Table } from "../../common/table";
 import { FileUploadButton } from "../../common/inputs";
 
@@ -30,7 +30,7 @@ const ImportForm: FunctionComponent = observer(() => {
           title="Import"
           accept=".csv"
           onChange={(event) => {
-            console.log(event);
+            // const response = await uploadFiles(files, onUploadProgress, max);
           }}
         />
       </Pane>

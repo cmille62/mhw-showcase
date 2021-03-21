@@ -1,12 +1,8 @@
-import * as React from "react";
+import React, { FunctionComponent } from "react";
 import { Pane, Button, Heading } from "evergreen-ui";
 import { observer } from "mobx-react";
-import { RouterStore } from "../../../stores";
+import { useRootStore } from "../../../stores";
 import { Routes } from "../../../utils";
-
-interface Props {
-  routerStore: RouterStore;
-}
 
 const SELECTED = "#E4E7EB";
 
@@ -18,9 +14,14 @@ const navigation = [
       {
         title: "Import",
         key: "import",
-        path: Routes.Admin.Import.path,
+        ...Routes.Admin.Import,
       },
-    ]
+      {
+        title: "Add",
+        key: "add",
+        ...Routes.Admin.Add,
+      },
+    ],
   },
   {
     title: "System",
@@ -29,50 +30,46 @@ const navigation = [
       {
         title: "Settings",
         key: "settings",
-        path: Routes.Admin.Settings.path,
+        ...Routes.Admin.Settings,
       },
     ],
   },
 ];
 
-@observer
-export class SideNavigation extends React.Component<Props, {}> {
-  render() {
-    const path = this.props.routerStore.location.pathname;
-    return (
-      <Pane
-        className="side-navigation"
-        display="flex"
-        flexDirection="column"
-        minWidth={150}
-        height="100%"
-        marginBottom="auto"
-        borderRight
-      >
-        {navigation.map(({ title, content, key }) => (
-          <React.Fragment key={key}>
-            <Heading size={400} marginBottom={5}>
-              {title}
-            </Heading>
-            {content.map((child) => (
-              <Pane backgroundColor={path === child.path ? SELECTED : ""}>
-                <Button
-                  id="settings"
-                  appearance="minimal"
-                  width="100%"
-                  onClick={() => {
-                    this.props.routerStore.push(child.path);
-                  }}
-                >
-                  {child.title}
-                </Button>
-              </Pane>
-            ))}
-          </React.Fragment>
-        ))}
-      </Pane>
-    );
-  }
-}
+export const SideNavigation: FunctionComponent = observer(() => {
+  const { routerStore } = useRootStore();
+  const path = routerStore.location.pathname;
+  return (
+    <Pane
+      className="side-navigation"
+      display="flex"
+      flexDirection="column"
+      minWidth={150}
+      height="100%"
+      marginBottom="auto"
+      borderRight
+    >
+      {navigation.map(({ title, content, key }) => (
+        <React.Fragment key={key}>
+          <Heading size={400} marginBottom={5}>
+            {title}
+          </Heading>
+          {content.map((child) => (
+            <Pane backgroundColor={path === child.path ? SELECTED : ""}>
+              <Button
+                id="settings"
+                appearance="minimal"
+                width="100%"
+                onClick={() => routerStore.push(child.path)}
+              >
+                {child.title}
+              </Button>
+            </Pane>
+          ))}
+        </React.Fragment>
+      ))}
+    </Pane>
+  );
+});
 
 export default SideNavigation;

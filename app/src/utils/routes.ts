@@ -8,6 +8,15 @@ export const BaseRoute = {
   path: formatRoute("/"),
 };
 
+interface RouteProps {
+  path: string;
+  roles: string[];
+}
+
+interface RoutesProps {
+  [key: string]: RouteProps | RoutesProps;
+}
+
 export const Routes = {
   Home: {
     path: formatRoute("/home"),
@@ -20,6 +29,10 @@ export const Routes = {
   Admin: {
     Import: {
       path: formatRoute("/admin/import"),
+      roles: [ROLES.ADMIN],
+    },
+    Add: {
+      path: formatRoute("/admin/add"),
       roles: [ROLES.ADMIN],
     },
     Settings: {
