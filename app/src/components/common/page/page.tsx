@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Card, Heading, Pane } from "evergreen-ui";
 import { ContentPane } from "../contentPane";
-import { DivProps } from "../../finder";
+import { DivProps } from "../../../typings";
 
 interface Props extends DivProps {
   title?: string;

@@ -1,5 +1,4 @@
 import { DropdownProps } from "./inputs/dropdown";
-import Box from "ui-box";
 
 export interface InputOption<T> {
   label: string;
@@ -11,8 +10,6 @@ export interface InputProps<T> {
   onChange: (value: T) => void;
   [key: string]: any;
 }
-
-export type DivProps = React.ComponentPropsWithoutRef<typeof Box>;
 
 export interface FinderSearchableSchema {
   /**

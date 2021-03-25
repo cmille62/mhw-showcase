@@ -1,12 +1,16 @@
 import React, { FunctionComponent } from "react";
-import { Pane, Heading, Text } from "evergreen-ui";
+import { Pane, Heading } from "evergreen-ui";
+import { DivProps } from "../../../typings";
 
-interface Props {
+export interface FieldProps {
   title?: string;
   description?: string;
   required?: boolean;
+  props?: DivProps;
+}
 
-  children?: React.ReactChildren;
+interface Props extends FieldProps {
+  children?: React.ReactNode;
 }
 
 export const Field: FunctionComponent<Props> = ({
@@ -14,9 +18,10 @@ export const Field: FunctionComponent<Props> = ({
   description,
   children,
   required = false,
+  props,
 }: Props) => {
   return (
-    <Pane>
+    <Pane {...props}>
       {title && (
         <Heading>
           {title} {required && "*"}
@@ -24,7 +29,7 @@ export const Field: FunctionComponent<Props> = ({
       )}
 
       {description && <Heading>{description}</Heading>}
-      <Pane>{children}</Pane>
+      <Pane width="100%">{children}</Pane>
     </Pane>
   );
 };

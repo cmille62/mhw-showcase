@@ -1,7 +1,11 @@
+import Box from "ui-box";
+
 export interface Settings {
   _id: string;
   live: boolean;
 }
+
+export type DivProps = React.ComponentPropsWithoutRef<typeof Box>;
 
 export type SortByType = "Relevance" | "Price Low-High" | "Price High-Low";
 export const SORT_BY: { [key: string]: SortByType } = {

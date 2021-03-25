@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { Button, Heading, Pane, TextInput } from "evergreen-ui";
 import { observer } from "mobx-react";
+import { Page } from "../../common";
+import { ProductLookup } from "./product.lookup";
 
 const fields = [
   { title: "SKU", key: "sku", path: "sku" },
@@ -23,6 +25,9 @@ const AddForm: FunctionComponent = observer(() => {
           Adding Products
         </Heading>
       </Pane>
+      <Page>
+        <ProductLookup />
+      </Page>
     </Pane>
   );
 });
