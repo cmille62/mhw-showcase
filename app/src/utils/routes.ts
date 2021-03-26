@@ -17,6 +17,8 @@ interface RoutesProps {
   [key: string]: RouteProps | RoutesProps;
 }
 
+const ADMIN_LIST = [ROLES.ADMIN];
+
 export const Routes = {
   Home: {
     path: formatRoute("/home"),
@@ -27,17 +29,43 @@ export const Routes = {
     roles: [],
   },
   Admin: {
-    Import: {
-      path: formatRoute("/admin/import"),
-      roles: [ROLES.ADMIN],
+    Router: {
+      path: formatRoute("/admin/:page"),
+      roles: ADMIN_LIST,
     },
-    Add: {
-      path: formatRoute("/admin/add"),
-      roles: [ROLES.ADMIN],
+    Home: {
+      path: formatRoute("/admin/home"),
+      roles: ADMIN_LIST,
+    },
+    Products: {
+      Router: {
+        path: formatRoute("/admin/products/:page"),
+        roles: ADMIN_LIST,
+      },
+      Add: {
+        path: formatRoute("/admin/products/add"),
+        roles: ADMIN_LIST,
+      },
+      Import: {
+        path: formatRoute("/admin/products/import"),
+        roles: ADMIN_LIST,
+      },
+      Edit: {
+        path: formatRoute("/admin/products/edit/:id"),
+        roles: ADMIN_LIST,
+      },
+      ViewAll: {
+        path: formatRoute("/admin/products/view"),
+        roles: ADMIN_LIST,
+      },
+      View: {
+        path: formatRoute("/admin/products/view/:id"),
+        roles: ADMIN_LIST,
+      },
     },
     Settings: {
       path: formatRoute("/admin/settings"),
-      roles: [ROLES.ADMIN],
+      roles: ADMIN_LIST,
     },
   },
 };

@@ -7,6 +7,7 @@ export class RootStore {
   public routerStore: stores.RouterStore;
   public importStore: stores.ImportStore;
   public preferencesStore: stores.PreferencesStore;
+  public productStore: stores.ProductStore;
   public settingsStore: stores.SettingsStore;
 
   public constructor() {
@@ -18,16 +19,18 @@ export class RootStore {
     this.routerStore = new stores.RouterStore();
     this.history = syncHistoryWithStore(browserHistory, this.routerStore);
     this.importStore = new stores.ImportStore();
-    this.settingsStore = new stores.SettingsStore();
     this.preferencesStore = new stores.PreferencesStore(uid);
+    this.productStore = new stores.ProductStore();
+    this.settingsStore = new stores.SettingsStore();
   }
 
   public getProviderStores() {
     return {
       routerStore: this.routerStore,
       importStore: this.importStore,
-      settingsStore: this.settingsStore,
       preferencesStore: this.preferencesStore,
+      productStore: this.productStore,
+      settingsStore: this.settingsStore,
     };
   }
 }

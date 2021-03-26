@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
-import { Button, Heading, Pane } from "evergreen-ui";
+import { Heading, Pane } from "evergreen-ui";
 import { observer } from "mobx-react";
-import { useRootStore } from "../../../stores";
-import { Table } from "../../common/table";
-import { FileUploadButton } from "../../common/inputs";
+import { useRootStore } from "../../../../stores";
+import { Table } from "../../../common/table";
+import { FileUploadButton } from "../../../common/inputs";
 
 const columns = [
   { title: "SKU", key: "sku", path: "sku" },

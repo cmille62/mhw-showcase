@@ -1,10 +1,12 @@
-import React from 'react';
-import { Pane } from 'evergreen-ui';
+import React from "react";
+import { Pane } from "evergreen-ui";
+import { DivProps } from "../../../typings";
 
 declare type Props = {
   maxWidth?: number;
-  flexDirection?: 'row' | 'column';
+  flexDirection?: "row" | "column";
   children?: React.ReactNode;
+  style?: DivProps;
 };
 
 export const ContentPane: React.FunctionComponent<Props> = (props: Props) => (
@@ -13,9 +15,10 @@ export const ContentPane: React.FunctionComponent<Props> = (props: Props) => (
       display="flex"
       flex={1}
       maxWidth={props.maxWidth ? props.maxWidth : 1000}
-      flexDirection={props.flexDirection ? props.flexDirection : 'column'}
+      flexDirection={props.flexDirection ? props.flexDirection : "column"}
       marginLeft="auto"
       marginRight="auto"
+      {...(props.style || {})}
     >
       {props.children}
     </Pane>

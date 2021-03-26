@@ -1,16 +1,17 @@
 import React, { FunctionComponent } from "react";
-import { Button, Heading, Pane, TextInput } from "evergreen-ui";
+import { Heading, Pane } from "evergreen-ui";
 import { observer } from "mobx-react";
-import { Page } from "../../common";
-import { ProductLookup } from "./product.lookup";
+import { Table } from "../../../common/table";
+import { useRootStore } from "../../../../stores";
 
-const fields = [
+const columns = [
   { title: "SKU", key: "sku", path: "sku" },
-  { title: "MFG Part Number", key: "mfgPartNumber", path: "mfgPartNumber" },
   { title: "UPC", key: "upc", path: "sku" },
+  { title: "Description", key: "description", path: "sku" },
 ];
 
-const AddForm: FunctionComponent = observer(() => {
+export const ViewAllForm: FunctionComponent = observer(() => {
+  const { productStore } = useRootStore();
   return (
     <Pane
       id="settingsPane"
@@ -22,14 +23,11 @@ const AddForm: FunctionComponent = observer(() => {
     >
       <Pane display="flex" flexDirection="row">
         <Heading size={800} marginBottom={10}>
-          Adding Products
+          Products
         </Heading>
       </Pane>
-      <Page>
-        <ProductLookup />
-      </Page>
+
+      <Table {...{ columns, data: productStore.products }} />
     </Pane>
   );
 });
-
-export default AddForm;

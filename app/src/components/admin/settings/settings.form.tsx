@@ -4,9 +4,9 @@ import { observer } from "mobx-react";
 import { SettingsAPI } from "../../../services";
 import { useRootStore } from "../../../stores";
 
-const SettingsForm: FunctionComponent = observer(() => {
+export const SettingsForm: FunctionComponent = observer(() => {
   const { settingsStore } = useRootStore();
-  
+
   useEffect(() => {
     SettingsAPI.get().then((response) => {
       if (response.status === 200) {
@@ -76,5 +76,3 @@ const SettingsForm: FunctionComponent = observer(() => {
     </Pane>
   );
 });
-
-export default SettingsForm;

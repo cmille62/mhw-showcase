@@ -1,12 +1,13 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { AddPage, ImportPage, SettingsPage } from "../components/admin";
+// import { AddPage, ImportPage, SettingsPage } from "../components/admin";
 import { BaseRoute, Routes } from "../utils";
 
 import { HomePage, ShowcasePage } from "../components";
 import { Header } from "../components/common";
 
 import "./style.scss";
+import { AdminRouter } from "../components/admin";
 
 const App: React.FunctionComponent = () => {
   return (
@@ -24,12 +25,8 @@ const App: React.FunctionComponent = () => {
         {/************** Application Pages ****************/}
         <Route {...Routes.Showcase} component={ShowcasePage} />
 
-        {/******************** Administration ********************/}
-        <Route {...Routes.Admin.Import} component={ImportPage} />
-
-        <Route {...Routes.Admin.Settings} component={SettingsPage} />
-
-        <Route {...Routes.Admin.Add} component={AddPage} />
+        {/******************** Sub Routers ********************/}
+        <Route {...Routes.Admin.Router} component={AdminRouter} />
 
         {/******************** Redirect ********************/}
         <Route render={() => <Redirect to={Routes.Home.path} />} />

@@ -12,14 +12,19 @@ const navigation = [
     key: "products",
     content: [
       {
-        title: "Import",
-        key: "import",
-        ...Routes.Admin.Import,
-      },
-      {
         title: "Add",
         key: "add",
-        ...Routes.Admin.Add,
+        ...Routes.Admin.Products.Add,
+      },
+      {
+        title: "View All",
+        key: "view-all",
+        ...Routes.Admin.Products.ViewAll,
+      },
+      {
+        title: "Import",
+        key: "import",
+        ...Routes.Admin.Products.Import,
       },
     ],
   },

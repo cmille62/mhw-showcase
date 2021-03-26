@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Card, Heading, Pane } from "evergreen-ui";
-import { ContentPane } from "../contentPane";
+import { ContentPane } from "../pane";
 import { DivProps } from "../../../typings";
 
 interface Props extends DivProps {
@@ -10,7 +10,7 @@ interface Props extends DivProps {
 export const Page: FunctionComponent<Props> = ({ title, ...props }: Props) => {
   return (
     <ContentPane>
-      <Heading size={700} marginBottom={8} marginLeft={32}>
+      <Heading size={600} marginBottom={8} marginLeft={32}>
         {title}
       </Heading>
       <Card
@@ -18,8 +18,8 @@ export const Page: FunctionComponent<Props> = ({ title, ...props }: Props) => {
         elevation={1}
         width="100%"
         minHeight={600}
-        borderRadius={32}
         padding={32}
+        background="white"
         {...props}
       >
         <Pane>{props.children}</Pane>
