@@ -8,7 +8,7 @@ import { REACT_APP_API_ROOT_URL } from "../utils";
     onUploadProgress: (event: any) => void,
     max?: number
   ) => {
-    const url = `${REACT_APP_API_ROOT_URL}/api/import/csv`;
+    const url = `${REACT_APP_API_ROOT_URL}/import/csv`;
     const config = {
       headers: {
         "Content-Type": "multipart/form-data",

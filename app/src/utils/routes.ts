@@ -4,6 +4,19 @@ export const formatRoute = (path: string) => {
   return `${REACT_APP_ROOT_URL}${path}`;
 };
 
+export const structureRoute = (
+  route: RouteProps,
+  options: { [key: string]: string }
+) => {
+  let result = route.path;
+
+  Object.keys(options).forEach((key) => {
+    result = result.replace(`:${key}`, options[key]);
+  });
+
+  return result;
+};
+
 export const BaseRoute = {
   path: formatRoute("/"),
 };
@@ -44,6 +57,10 @@ export const Routes = {
       },
       Add: {
         path: formatRoute("/admin/products/add"),
+        roles: ADMIN_LIST,
+      },
+      Create: {
+        path: formatRoute("/admin/products/edit/"),
         roles: ADMIN_LIST,
       },
       Import: {

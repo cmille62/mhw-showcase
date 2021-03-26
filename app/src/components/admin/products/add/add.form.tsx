@@ -1,9 +1,11 @@
 import React, { FunctionComponent, useState } from "react";
-import { Heading, Pane } from "evergreen-ui";
+import { ArrowRightIcon, Heading, Pane, IconButton } from "evergreen-ui";
 import { observer } from "mobx-react";
-import { Page } from "../../../common";
+import { APICheck, Page } from "../../../common";
 import { ProductLookup } from "./product.lookup";
 import { AddProductChecks } from "./add.checks";
+import { Link } from "react-router-dom";
+import { Routes } from "../../../../utils";
 
 const AddForm: FunctionComponent = observer(() => {
   const [upc, setUPC] = useState("");
@@ -28,6 +30,15 @@ const AddForm: FunctionComponent = observer(() => {
           setSKU={(sku: string) => setSKU(sku)}
         />
         <AddProductChecks {...{ upc, sku }} />
+
+        <APICheck request={() => Promise.resolve(200)} title="Hey!">
+          <IconButton
+            appearance="minimal"
+            is="a"
+            href={Routes.Admin.Products.Create.path}
+            icon={ArrowRightIcon}
+          />
+        </APICheck>
       </Page>
     </Pane>
   );

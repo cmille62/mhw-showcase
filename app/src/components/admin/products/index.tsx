@@ -15,6 +15,7 @@ export const ProductsRouter: FunctionComponent = () => {
     <Switch>
       {/******************** Product Pages ********************/}
       <Route {...Routes.Admin.Products.Add} component={AddPage} />
+      <Route {...Routes.Admin.Products.Create} component={EditPage} />
       <Route {...Routes.Admin.Products.Edit} component={EditPage} />
       <Route {...Routes.Admin.Products.Import} component={ImportPage} />
       <Route {...Routes.Admin.Products.ViewAll} component={ViewAllPage} />

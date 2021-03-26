@@ -4,6 +4,8 @@ import { Checks } from "./checks";
 interface Props {
   request: () => Promise<number>;
   title: string;
+
+  children?: React.ReactNode;
 }
 
 export const APICheck: FunctionComponent<Props> = ({
