@@ -1,11 +1,11 @@
 import Mongoose from "mongoose";
-import { ProductsSchema } from "../schema";
+import { ActionSchema } from "../schema";
 import { ActionType } from "../types";
 
-const schema = new Mongoose.Schema(ProductsSchema, {
-  collection: "firearm-action",
+const schema = new Mongoose.Schema(ActionSchema, {
+  collection: "action",
 });
 
-export const ActionModel = Mongoose.model<ActionType>("firearm-action", schema);
+export const ActionModel = Mongoose.model<ActionType>("action", schema);
 
 export default ActionModel;

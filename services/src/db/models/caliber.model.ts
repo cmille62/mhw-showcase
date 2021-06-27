@@ -1,14 +1,11 @@
 import Mongoose from "mongoose";
-import { ProductsSchema } from "../schema";
+import { CaliberSchema } from "../schema";
 import { CaliberType } from "../types";
 
-const schema = new Mongoose.Schema(ProductsSchema, {
-  collection: "firearm-caliber",
+const schema = new Mongoose.Schema(CaliberSchema, {
+  collection: "caliber",
 });
 
-export const CaliberModel = Mongoose.model<CaliberType>(
-  "firearm-caliber",
-  schema
-);
+export const CaliberModel = Mongoose.model<CaliberType>("caliber", schema);
 
 export default CaliberModel;

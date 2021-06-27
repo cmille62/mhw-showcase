@@ -1,6 +1,6 @@
 import express, { Request } from "express";
 import * as core from "express-serve-static-core";
-import { ActionModel, CaliberModel } from "../../db";
+import { ActionModel, CaliberModel, CategoryModel } from "../../db";
 
 const router = express.Router();
 
@@ -19,6 +19,8 @@ function getDb(db: string) {
       return CaliberModel;
     case "action":
       return ActionModel;
+    case "category":
+      return CategoryModel;
   }
 }
 
@@ -28,6 +30,8 @@ router.get("/:id", (req: T<{ id: string }>, res) =>
 router.get("/all", (req: T, res) => getAll(req, res, getDb(req.params.db)));
 
 router.post("/", (req: T, res) => post(req, res, getDb(req.params.db)));
-router.put("/", (req: T<{ id: string }>, res) => put(req, res, getDb(req.params.db)));
+router.put("/", (req: T<{ id: string }>, res) =>
+  put(req, res, getDb(req.params.db))
+);
 
 export default { router };
