@@ -1,24 +1,19 @@
+import { Request, Response } from "express";
 import { Settings } from "../../db";
-import { Static, invalidParameters } from "../../utils";
+import { Static, REST } from "../../utils";
 
-export async function putSettings(request: any, response: any) {
-    const _id = request.params.id;
-    const config = request.body;
-  
-    console.log(config);
-    if (!_id) {
-      response.status(400).send(invalidParameters("id"));
-      return;
-    }
-  
-    try {
-      await Settings.findByIdAndUpdate(
-        { _id },
-        config
-      ).exec();
-  
-      response.status(200).send(Static.SETTINGS_UPDATED_MESSAGE);
-    } catch (error) {
-      response.status(400).send();
-    }
+export async function putSettings(
+  request: Request<{ id: string }>,
+  response: Response
+): Promise<void> {
+  const { id } = request.params;
+  const config = request.body;
+
+  try {
+    await Settings.findByIdAndUpdate({ _id: id }, config);
+
+    response.status(REST.OK).send(Static.SETTINGS_UPDATED_MESSAGE);
+  } catch (error) {
+    response.status(REST.BAD_REQUEST).send();
   }
+}

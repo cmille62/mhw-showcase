@@ -5,10 +5,13 @@ import { APICheck, Page } from "../../../common";
 import { ProductLookup } from "./product.lookup";
 import { AddProductChecks } from "./add.checks";
 import { Routes } from "../../../../utils";
+import { ProductLookupOptions, PRODUCT_LOOKUP } from "../../../../typings";
 
 const AddForm: FunctionComponent = observer(() => {
-  const [upc, setUPC] = useState("");
-  const [sku, setSKU] = useState("");
+  const [value, setValue] = useState("");
+  const [type, setType] = useState<ProductLookupOptions>(PRODUCT_LOOKUP.UPC);
+
+  console.log(value, type);
   return (
     <Pane
       id="settingsPane"
@@ -20,15 +23,12 @@ const AddForm: FunctionComponent = observer(() => {
     >
       <Pane display="flex" flexDirection="row">
         <Heading size={800} marginBottom={10}>
-          Adding Products
+          Adding Product
         </Heading>
       </Pane>
       <Page>
-        <ProductLookup
-          setUPC={(upc: string) => setUPC(upc)}
-          setSKU={(sku: string) => setSKU(sku)}
-        />
-        <AddProductChecks {...{ upc, sku }} />
+        <ProductLookup {...{ setValue, setType, value, type }} />
+        {value && <AddProductChecks {...{ value, type }} />}
 
         <APICheck request={() => Promise.resolve(200)} title="Hey!">
           <IconButton

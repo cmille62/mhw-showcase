@@ -8,5 +8,4 @@ import { getUPC } from "./get-upc";
 router.get("/part/:partNumber", getPartNumber);
 router.get("/upc/:upc", getUPC);
 
-
 export default { router };

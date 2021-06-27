@@ -8,5 +8,4 @@ import { putSettings } from "./put";
 router.get("/", getSettings);
 router.put("/:id", putSettings);
 
-
 export default { router };

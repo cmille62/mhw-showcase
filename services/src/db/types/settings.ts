@@ -1,5 +1,5 @@
-import Mongoose, { Document } from "mongoose";
+import { Document } from "mongoose";
 
 export interface SettingsType extends Document {
-    live: boolean;
+  live: boolean;
 }

@@ -84,5 +84,9 @@ export const Routes = {
       path: formatRoute("/admin/settings"),
       roles: ADMIN_LIST,
     },
+    Version: {
+      path: formatRoute("/admin/version"),
+      roles: ADMIN_LIST,
+    },
   },
 };

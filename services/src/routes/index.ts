@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 
 const router = express.Router();
 
@@ -10,11 +10,11 @@ router.use("/products", products.router);
 router.use("/br", br.router);
 router.use("/settings", settings.router);
 
-router.get("/*", (req: any, res: any) => {
+router.get("/*", (_: Request, res: Response) => {
   res.send("Not a valid api call");
 });
 
-router.use("/*", (req: any, res: any) => {
+router.use("/*", (_: Request, res: Response) => {
   res.send("Invalid API Request");
 });
 

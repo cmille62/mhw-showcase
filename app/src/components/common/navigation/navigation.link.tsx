@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import { Button } from "evergreen-ui";
-import { useRootStore } from "../../../stores";
 
 interface Props {
   children: React.ReactNode;

@@ -1,4 +1,3 @@
-
 export const SettingsSchema = {
   live: Boolean,
 };

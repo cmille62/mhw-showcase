@@ -4,7 +4,6 @@ const router = express.Router();
 
 import { importCsv } from "./import-csv";
 
-router.put("/csv", importCsv );
-
+router.put("/csv", importCsv);
 
 export default { router };

@@ -1,5 +1,3 @@
-import Mongoose, { Document } from "mongoose";
+import { Document } from "mongoose";
 
-export interface ProductsType extends Document {
-
-}
+export type ProductsType = Document;

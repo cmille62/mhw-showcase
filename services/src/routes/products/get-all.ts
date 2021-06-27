@@ -1,13 +1,12 @@
 import { Request, Response } from "express";
 import { Products } from "../../db";
+import { REST } from "../../utils";
 
-export async function getAll(request: Request, response: Response) {
+export async function getAll(_: Request, response: Response): Promise<void> {
   try {
     const document = await Products.find();
-    response.status(200).send(document);
+    response.status(REST.OK).send(document);
   } catch (error) {
-    response.status(400).send();
+    response.status(REST.BAD_REQUEST).send();
   }
 }
-
-export default getAll;

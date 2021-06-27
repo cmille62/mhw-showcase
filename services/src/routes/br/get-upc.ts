@@ -1,25 +1,22 @@
 import { Request, Response } from "express";
 import Axios from "axios";
-import { BR_ENDPOINT } from "../../utils/constants";
+import { BR_ENDPOINT, REST } from "../../utils";
 import BR from "./authorize";
 
-export async function getUPC(request: Request, response: Response) {
-  const upc = request.params.upc;
+export async function getUPC(
+  request: Request<{ upc: string }>,
+  response: Response
+): Promise<void> {
+  const { upc } = request.params;
   const headers = await BR.getHeader();
-
-  if (!upc) {
-    response.status(400).send("Must provide Parameter: 'upc'");
-    return;
-  }
 
   try {
     const result = await Axios.get(`${BR_ENDPOINT}/catalog/upc/${upc}`, {
       headers,
     });
-    response.status(200).send(result.data);
+    response.status(REST.OK).send(result.data);
   } catch (error) {
-      console.log(error);
-    response.status(400).send();
+    response.status(REST.BAD_REQUEST).send();
   }
 }
 

@@ -23,6 +23,6 @@ app.all("*", async (req: any, res: any, next: any) => {
 app.use("/api", routes.router);
 app.use("/", routes.router);
 
-export const start = (port: number) => {
-   app.listen(port);
+export const start = (port: number): void => {
+  app.listen(port);
 };

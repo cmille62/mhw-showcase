@@ -37,6 +37,11 @@ const navigation = [
         key: "settings",
         ...Routes.Admin.Settings,
       },
+      {
+        title: "Version",
+        key: "version",
+        ...Routes.Admin.Version,
+      },
     ],
   },
 ];

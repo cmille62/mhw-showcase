@@ -3,15 +3,16 @@ import { Pane } from "evergreen-ui";
 import { APICheck } from "../../../common";
 import { useRootStore } from "../../../../stores";
 import { BRServiceAPI } from "../../../../services";
+import { PRODUCT_LOOKUP } from "../../../../typings";
 
 interface Props {
-  upc?: string;
-  sku?: string;
+  value: string;
+  type: string;
 }
 
 export const AddProductChecks: FunctionComponent<Props> = ({
-  sku,
-  upc,
+  value,
+  type,
 }: Props) => {
   const { productStore } = useRootStore();
   const [product, setProduct] = useState();
@@ -19,17 +20,17 @@ export const AddProductChecks: FunctionComponent<Props> = ({
 
   useEffect(() => {
     findCheck && setCheck(false);
-  }, [upc, sku, findCheck]);
+  }, [type, value, findCheck]);
 
-  console.log(findCheck, upc);
+  console.log(findCheck, value);
 
   return (
     <Pane>
-      {upc && (
+      {type === PRODUCT_LOOKUP.UPC && (
         <APICheck
           title="New Product UPC"
           request={async () => {
-            const result = await productStore.getByUPC(upc);
+            const result = await productStore.getByUPC(value);
             console.log(result);
             if (result && result.data) {
               setProduct(result.data);
@@ -40,11 +41,11 @@ export const AddProductChecks: FunctionComponent<Props> = ({
           }}
         />
       )}
-      {findCheck && upc && (
+      {findCheck && type === PRODUCT_LOOKUP.UPC && (
         <APICheck
           title="Big Rocks Fetch"
           request={async () => {
-            const result = await BRServiceAPI.getByUPC(upc);
+            const result = await BRServiceAPI.getByUPC(value);
             if (result.data) {
               setProduct(result.data);
             }
@@ -52,11 +53,11 @@ export const AddProductChecks: FunctionComponent<Props> = ({
           }}
         />
       )}
-      {findCheck && sku && (
+      {findCheck && type === PRODUCT_LOOKUP.SKU && (
         <APICheck
           title="Big Rocks Fetch"
           request={async () => {
-            const result = await BRServiceAPI.getByPartNumber(sku);
+            const result = await BRServiceAPI.getByPartNumber(value);
             if (result.data) {
               setProduct(result.data);
             }

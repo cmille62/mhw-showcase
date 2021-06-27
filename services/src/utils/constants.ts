@@ -10,14 +10,13 @@ const _br_username = process.env.BR_USERNAME;
 const _br_password = process.env.BR_PASSWORD;
 const _br_customer = process.env.BR_CUSTOMER;
 
-
 export const PORT = parseInt(_port) || 8080;
 
-// MongoDB Variables -- 
+// MongoDB Variables --
 export const MONGO_URL = _mongo_url || "mongodb://mongo:27017";
 export const DB_NAME = _mongo_db || "showcase";
 
-// API Endpoints -- 
+// API Endpoints --
 export const BR_ENDPOINT = _br_endpoint || "";
 export const BR_USERNAME = _br_username || "";
 export const BR_PASSWORD = _br_password || "";

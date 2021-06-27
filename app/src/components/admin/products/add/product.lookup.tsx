@@ -1,48 +1,41 @@
 import React, { FunctionComponent } from "react";
-import { Pane } from "evergreen-ui";
-import { Input, Section } from "../../../common";
+import { Combobox, IconButton, TextInput, SearchIcon } from "evergreen-ui";
+import { Section } from "../../../common";
+import { ProductLookupOptions, ProductLookupType } from "../../../../typings";
 
 interface Props {
-  setUPC: (upc: string) => void;
-  setSKU: (sku: string) => void;
+  value: string;
+  type: ProductLookupOptions;
+
+  setValue: (value: string) => void;
+  setType: (value: ProductLookupOptions) => void;
 }
 
 export const ProductLookup: FunctionComponent<Props> = ({
-  setSKU,
-  setUPC,
+  value,
+  setValue,
+  type,
+  setType,
 }: Props) => {
-  const fields: {
-    title: string;
-    key: string;
-    onChange: (value: string) => void;
-  }[] = [
-    {
-      title: "SKU",
-      key: "sku",
-      onChange: setSKU,
-    },
-    {
-      title: "UPC",
-      key: "upc",
-      onChange: setUPC,
-    },
-    // {
-    //   title: "MFG Part Number",
-    //   key: "mfg",
-    // },
-  ];
-
   return (
-    <Section title="Product Lookup" style={{ flexDirection: "column" }}>
-      <Pane display="flex">
-        {fields.map((field, index) => (
-          <Input {...field} props={{ marginX: 4 }} />
-        ))}
-      </Pane>
-
-      {/* <ControlPane style={{ marginTop: 16, marginX: 4 }}>
-        <Button appearance="primary">Search</Button>
-      </ControlPane> */}
+    <Section title="Product">
+      <Combobox
+        initialSelectedItem={ProductLookupOptions.find(
+          (item) => item.value === type
+        )}
+        items={ProductLookupOptions}
+        itemToString={(item) => item?.title || ""}
+        onChange={(item: ProductLookupType) => setType(item.value)}
+      />
+      <TextInput
+        width="100%"
+        marginX={4}
+        value={value}
+        onChange={({
+          target: { value },
+        }: React.ChangeEvent<HTMLInputElement>) => setValue(value)}
+      />
+      <IconButton icon={SearchIcon} />
     </Section>
   );
 };

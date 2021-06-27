@@ -1,14 +1,13 @@
 import Mongoose from "mongoose";
 import { MONGO_URL } from "../utils";
 
-
 Mongoose.Promise = global.Promise;
 
 /**
  * Handles the connection to the MongoDB Database.
  * @param db the database name
  */
-export const establishMongoDBConnection = async (db: string) => {
+export const establishMongoDBConnection = async (db: string): Promise<void> => {
   try {
     await Mongoose.connect(`${MONGO_URL}/${db}`, {
       useNewUrlParser: true,

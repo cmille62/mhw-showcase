@@ -1,20 +1,23 @@
 import { Request, Response } from "express";
+import { REST } from "../../utils";
 import { Products } from "../../db";
 
-export async function getProduct(request: Request, response: Response) {
+export async function getProductByUPC(
+  request: Request<{ upc: string }>,
+  response: Response
+): Promise<void> {
   const upc = request.params.upc;
-
-  if (!upc) {
-    response.status(400).send("Must provide Parameter: 'upc'");
-    return;
-  }
 
   try {
     const document = await Products.findOne({ upc }).exec();
-    response.status(200).send(document);
+
+    if (!document) {
+      response.status(REST.NOT_FOUND).send(document);
+      return;
+    }
+
+    response.status(REST.OK).send(document);
   } catch (error) {
-    response.status(400).send();
+    response.status(REST.BAD_REQUEST).send();
   }
 }
-
-export default getProduct;

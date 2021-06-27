@@ -7,13 +7,15 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "output-version": "genversion --es6 --semi ./src/version.ts && eslint ./src/version.ts --fix",
     "clean": "shx rm -rf _bundles dist dist-esm",
     "tslint": "tslint -c tslint.json -p tsconfig.json --fix",
     "prebuild": "yarn run clean",
     "build": "tsc && tsc -m es6 --outDir dist-esm",
     "start": "node ./dist/index.js",
     "dev": "yarn build && yarn start",
-    "test:unit": "jest"
+    "test:unit": "jest",
+    "lint": "eslint './src/**/*.ts'"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -35,10 +37,18 @@
     "@types/lodash": "^4.14.149",
     "@types/mongoose": "^5.7.36",
     "@types/node": "14.14.31",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-prettier": "^3.1.2",
+    "genversion": "^2.2.1",
     "jest": "^26.4.2",
+    "prettier": "^2.0.4",
     "shx": "^0.3.2",
-    "tslint": "^6.1.3",
     "ts-jest": "^26.2.0",
+    "tslint": "^6.1.3",
     "typescript": "^4.2.2"
   }
 }
