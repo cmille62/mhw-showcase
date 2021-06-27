@@ -1,17 +1,10 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
-import { Heading, Pane } from "evergreen-ui";
-import { observer } from "mobx-react";
-import { Table } from "../../common/table";
-import { useRootStore } from "../../../stores";
 import { RouteComponentProps } from "react-router";
-import { startCase } from "lodash";
 import { CollectionAPI } from "../../../services";
-
-const columns = [
-  { title: "SKU", key: "sku", path: "sku" },
-  { title: "UPC", key: "upc", path: "sku" },
-  { title: "Description", key: "description", path: "sku" },
-];
+import { Heading, Pane } from "evergreen-ui";
+import { Table } from "../../common/table";
+import { observer } from "mobx-react";
+import { startCase } from "lodash";
 
 type Props = RouteComponentProps<{ collection: string }>;
 
@@ -29,6 +22,11 @@ export const CollectionViewAll: FunctionComponent<Props> = observer(
         setLoading(false);
       });
     }, [collection]);
+
+    const columns = [
+      { title: startCase(collection), key: collection, path: collection },
+      { title: "Description", key: "description", path: "description" },
+    ];
 
     return (
       <Pane

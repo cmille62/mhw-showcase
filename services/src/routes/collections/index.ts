@@ -15,22 +15,21 @@ type T<P extends core.Params = core.ParamsDictionary> = Request<
 
 function getDb(db: string) {
   switch (db) {
-    case "caliber":
-      return CaliberModel;
     case "action":
       return ActionModel;
+    case "caliber":
+      return CaliberModel;
     case "category":
       return CategoryModel;
   }
 }
-
-router.get("/:id", (req: T<{ id: string }>, res) =>
+router.get("/:db/all", (req: T, res) => getAll(req, res, getDb(req.params.db)));
+router.get("/:db/:id", (req: T<{ id: string }>, res) =>
   get(req, res, getDb(req.params.db))
 );
-router.get("/all", (req: T, res) => getAll(req, res, getDb(req.params.db)));
 
-router.post("/", (req: T, res) => post(req, res, getDb(req.params.db)));
-router.put("/", (req: T<{ id: string }>, res) =>
+router.post("/:db/", (req: T, res) => post(req, res, getDb(req.params.db)));
+router.put("/:db/", (req: T<{ id: string }>, res) =>
   put(req, res, getDb(req.params.db))
 );
 

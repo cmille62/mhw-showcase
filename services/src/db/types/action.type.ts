@@ -1,7 +1,9 @@
 import { Document } from "mongoose";
 
-export interface ActionType extends Document {
+export interface RawActionType {
   action: string;
-  description: string;
+  description?: string;
   conversion: string[];
 }
+
+export type ActionType = Document & RawActionType;

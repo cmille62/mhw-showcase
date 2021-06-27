@@ -8,7 +8,7 @@ import products from "./products";
 import settings from "./settings";
 
 router.use("/br", br.router);
-router.use("/collections/:db", collections.router);
+router.use("/collections", collections.router);
 router.use("/products", products.router);
 router.use("/settings", settings.router);
 

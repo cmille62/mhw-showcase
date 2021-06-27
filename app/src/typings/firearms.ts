@@ -23,7 +23,7 @@ export const FIREARM_ACTIONS: FirearmActionType[] = [
   "Single Shot",
 ];
 
-export type FirearmType =
+export type CategoryType =
   | "Handgun"
   | "Rifle"
   | "Shotgun"
@@ -32,7 +32,7 @@ export type FirearmType =
   | "Suppressor"
   | "Other NFA";
 
-export const FIREARM_TYPE: FirearmType[] = [
+export const CATEGORY_TYPE: CategoryType[] = [
   "Handgun",
   "Rifle",
   "Shotgun",

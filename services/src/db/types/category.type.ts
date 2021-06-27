@@ -1,7 +1,9 @@
 import { Document } from "mongoose";
 
-export interface CategoryType extends Document {
+export interface RawCategoryType {
   category: string;
-  description: string;
+  description?: string;
   conversion: string[];
 }
+
+export type CategoryType = Document & RawCategoryType;
