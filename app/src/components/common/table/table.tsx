@@ -1,9 +1,12 @@
 import React, { FunctionComponent } from "react";
-import { SearchInput, Table, Text } from "evergreen-ui";
+import { Pane, Paragraph, SearchInput, Table, Text } from "evergreen-ui";
 import { get } from "lodash";
 
 interface Props {
   data: Record<string, any>[];
+  loading?: boolean;
+  emptyMessage?: string;
+
   columns: {
     title: string;
     key: string;
@@ -15,9 +18,14 @@ interface Props {
 }
 
 export const SearchableTable: FunctionComponent<Props> = ({
+  loading,
   data,
   columns,
+  emptyMessage = "No results",
 }: Props) => {
+  if (loading) {
+    data = [{}, {}, {}, {}];
+  }
   return (
     <React.Fragment>
       <SearchInput marginBottom={8} />
@@ -30,6 +38,13 @@ export const SearchableTable: FunctionComponent<Props> = ({
           ))}
         </Table.Head>
         <Table.Body>
+          {data.length === 0 && (
+            <Pane width="100%" marginY={32}>
+              <Paragraph color="muted" textAlign="center">
+                {emptyMessage}
+              </Paragraph>
+            </Pane>
+          )}
           {data.map((each, i) => (
             <Table.Row key={`table-row-${i}`}>
               {columns.map((column, index) => (
@@ -45,7 +60,7 @@ export const SearchableTable: FunctionComponent<Props> = ({
           ))}
         </Table.Body>
       </Table>
-      <Text>{data.length} Rows</Text>
+      <Text>{loading ? 0 : data.length} Rows</Text>
     </React.Fragment>
   );
 };

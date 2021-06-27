@@ -43,8 +43,7 @@ const tacticalField = [
   { title: "Rail", key: "rail", path: "rail" },
   { title: "Thread Pitch", key: "threadPitch", path: "threadPitch" },
   { title: "Muzzle Device", key: "muzzleDevice", path: "muzzleDevice" },
-
-]
+];
 
 interface Props {
   id?: string;
@@ -59,7 +58,7 @@ export const EditForm: FunctionComponent<Props> = observer(
       productStore.selected || {}
     );
 
-  console.log(product);
+    console.log(product);
 
     useEffect(() => {
       if (!productStore.selected) {

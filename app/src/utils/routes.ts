@@ -50,6 +50,20 @@ export const Routes = {
       path: formatRoute("/admin/home"),
       roles: ADMIN_LIST,
     },
+    Collection: {
+      Router: {
+        path: formatRoute("/admin/collections/:collection"),
+        roles: ADMIN_LIST,
+      },
+      Home: {
+        path: formatRoute("/admin/collections"),
+        roles: ADMIN_LIST,
+      },
+      Edit: {
+        path: formatRoute("/admin/collections/:collection/:id"),
+        roles: ADMIN_LIST,
+      },
+    },
     Products: {
       Router: {
         path: formatRoute("/admin/products/:page"),

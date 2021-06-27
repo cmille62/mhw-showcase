@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { Pane, Button, Heading } from "evergreen-ui";
 import { observer } from "mobx-react";
 import { useRootStore } from "../../../stores";
-import { Routes } from "../../../utils";
+import { Routes, structureRoute } from "../../../utils";
 
 const SELECTED = "#E4E7EB";
 
@@ -25,6 +25,17 @@ const navigation = [
         title: "Import",
         key: "import",
         ...Routes.Admin.Products.Import,
+      },
+    ],
+  },
+  {
+    title: "Collections",
+    key: "collections",
+    content: [
+      {
+        title: "View All",
+        key: "collections-view-all",
+        ...Routes.Admin.Collection.Home,
       },
     ],
   },
