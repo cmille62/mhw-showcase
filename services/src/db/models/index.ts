@@ -1,2 +1,5 @@
-export * from "./products";
-export * from "./settings";
+export { ActionModel } from "./action.model";
+export { CaliberModel } from "./caliber.model";
+
+export { Products } from "./products";
+export { Settings } from "./settings";

@@ -6,6 +6,8 @@ export { Checks } from "./checks/checks";
 export { ContentPane } from "./pane/content.pane";
 export { ControlPane } from "./pane/control.pane";
 
+export { Empty } from "./empty.component";
+
 export { Header } from "./header/header.component";
 
 export { Loading } from "./loading.component";

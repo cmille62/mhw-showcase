@@ -1,13 +1,12 @@
 import React, { FunctionComponent, useState } from "react";
-import { ArrowRightIcon, Heading, Pane, IconButton } from "evergreen-ui";
+import { Card, Heading, Pane } from "evergreen-ui";
 import { observer } from "mobx-react";
-import { APICheck, Page } from "../../../common";
+import { Empty, Page } from "../../../common";
 import { ProductLookup } from "./product.lookup";
 import { AddProductChecks } from "./add.checks";
-import { Routes } from "../../../../utils";
 import { ProductLookupOptions, PRODUCT_LOOKUP } from "../../../../typings";
 
-const AddForm: FunctionComponent = observer(() => {
+export const AddContent: FunctionComponent = observer(() => {
   const [value, setValue] = useState("");
   const [type, setType] = useState<ProductLookupOptions>(PRODUCT_LOOKUP.UPC);
 
@@ -28,19 +27,11 @@ const AddForm: FunctionComponent = observer(() => {
       </Pane>
       <Page>
         <ProductLookup {...{ setValue, setType, value, type }} />
-        {value && <AddProductChecks {...{ value, type }} />}
-
-        <APICheck request={() => Promise.resolve(200)} title="Hey!">
-          <IconButton
-            appearance="minimal"
-            is="a"
-            href={Routes.Admin.Products.Create.path}
-            icon={ArrowRightIcon}
-          />
-        </APICheck>
+        <Card border="muted" marginTop={16}>
+          {value && <AddProductChecks {...{ value, type }} />}
+          {!value && <Empty message="Please Enter an Unique Identifier" />}
+        </Card>
       </Page>
     </Pane>
   );
 });
-
-export default AddForm;

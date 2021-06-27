@@ -44,5 +44,3 @@ export class BR {
     };
   }
 }
-
-export default BR;

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
-import { Combobox, IconButton, TextInput, SearchIcon } from "evergreen-ui";
-import { Section } from "../../../common";
+import { Combobox, IconButton, SearchIcon } from "evergreen-ui";
+import { Input, Section } from "../../../common";
 import { ProductLookupOptions, ProductLookupType } from "../../../../typings";
 
 interface Props {
@@ -27,13 +27,10 @@ export const ProductLookup: FunctionComponent<Props> = ({
         itemToString={(item) => item?.title || ""}
         onChange={(item: ProductLookupType) => setType(item.value)}
       />
-      <TextInput
-        width="100%"
-        marginX={4}
+      <Input
+        props={{ marginX: 4, width: "100%", minWidth: "300px" }}
         value={value}
-        onChange={({
-          target: { value },
-        }: React.ChangeEvent<HTMLInputElement>) => setValue(value)}
+        onChange={(value) => setValue(value)}
       />
       <IconButton icon={SearchIcon} />
     </Section>

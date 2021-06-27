@@ -6,10 +6,10 @@ export async function getProductByUPC(
   request: Request<{ upc: string }>,
   response: Response
 ): Promise<void> {
-  const upc = request.params.upc;
+  const { upc } = request.params;
 
   try {
-    const document = await Products.findOne({ upc }).exec();
+    const document = await Products.findOne({ upc });
 
     if (!document) {
       response.status(REST.NOT_FOUND).send(document);

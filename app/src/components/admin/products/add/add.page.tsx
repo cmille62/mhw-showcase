@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { SideNavigation } from "../../navigation";
 import { ContentPane, Navigation, NavigationLink } from "../../../common";
 import { Routes } from "../../../../utils";
-import AddForm from "./add.form";
+import { AddContent } from "./add.content";
 import { observer } from "mobx-react";
 
 export const AddPage: FunctionComponent = observer(() => {
@@ -15,7 +15,7 @@ export const AddPage: FunctionComponent = observer(() => {
       </Navigation>
       <ContentPane flexDirection="row">
         <SideNavigation />
-        <AddForm />
+        <AddContent />
       </ContentPane>
     </ContentPane>
   );

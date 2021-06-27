@@ -1,9 +1,11 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
-import { Pane } from "evergreen-ui";
+import { ArrowRightIcon, Icon, Pane } from "evergreen-ui";
 import { APICheck } from "../../../common";
 import { useRootStore } from "../../../../stores";
 import { BRServiceAPI } from "../../../../services";
 import { PRODUCT_LOOKUP } from "../../../../typings";
+import { Routes } from "../../../../utils";
+import { Link } from "react-router-dom";
 
 interface Props {
   value: string;
@@ -20,19 +22,27 @@ export const AddProductChecks: FunctionComponent<Props> = ({
 
   useEffect(() => {
     findCheck && setCheck(false);
-  }, [type, value, findCheck]);
+  }, [type, value]);
 
-  console.log(findCheck, value);
+  console.log(product);
+
+  const children = product ? (
+    <Link
+      to={{ pathname: Routes.Admin.Products.Create.path, state: { product } }}
+    >
+      <Icon icon={ArrowRightIcon} />
+    </Link>
+  ) : null;
 
   return (
     <Pane>
       {type === PRODUCT_LOOKUP.UPC && (
         <APICheck
-          title="New Product UPC"
+          title="New Product"
           request={async () => {
-            const result = await productStore.getByUPC(value);
+            const result = await productStore.getBy(value, type);
             console.log(result);
-            if (result && result.data) {
+            if (result && result.status === 200 && result.data) {
               setProduct(result.data);
             } else {
               setCheck(true);
@@ -43,7 +53,8 @@ export const AddProductChecks: FunctionComponent<Props> = ({
       )}
       {findCheck && type === PRODUCT_LOOKUP.UPC && (
         <APICheck
-          title="Big Rocks Fetch"
+          {...{ children }}
+          title="Fetch by UPC"
           request={async () => {
             const result = await BRServiceAPI.getByUPC(value);
             if (result.data) {
@@ -55,7 +66,8 @@ export const AddProductChecks: FunctionComponent<Props> = ({
       )}
       {findCheck && type === PRODUCT_LOOKUP.SKU && (
         <APICheck
-          title="Big Rocks Fetch"
+          {...{ children }}
+          title="Fetch by SKU"
           request={async () => {
             const result = await BRServiceAPI.getByPartNumber(value);
             if (result.data) {

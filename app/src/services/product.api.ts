@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Product } from "../typings";
+import { Product, PRODUCT_LOOKUP } from "../typings";
 import { getConfig, postConfig } from "./config";
 import { REACT_APP_API_ROOT_URL } from "../utils/constants";
 import { encodeQueryParameters } from "./utils";
@@ -18,8 +18,16 @@ export const getAll = async function (query: {
   }
 };
 
-export const get = async function (upc: string) {
-  const url = `${REACT_APP_API_ROOT_URL}/products/${upc}`;
+export const getByUPC = async function (value: string) {
+  return getBy(value, PRODUCT_LOOKUP.UPC);
+};
+
+export const getBySKU = async function (value: string) {
+  return getBy(value, PRODUCT_LOOKUP.SKU);
+};
+
+export const getBy = async function (value: string, type: string) {
+  const url = `${REACT_APP_API_ROOT_URL}/products/${type}/${value}`;
 
   try {
     return await axios.get<Product>(url, getConfig);
@@ -39,7 +47,10 @@ export const update = async function (product: Product) {
 };
 
 export const api = {
-  get,
+  getBy,
+  getByUPC,
+  getBySKU,
+
   getAll,
   update,
 };

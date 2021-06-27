@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import Axios from "axios";
 import { BR_ENDPOINT, REST } from "../../utils";
-import BR from "./authorize";
+import { BR } from "./authorize";
 
-export async function getUPC(
+export async function getByUPC(
   request: Request<{ upc: string }>,
   response: Response
 ): Promise<void> {
@@ -19,5 +19,3 @@ export async function getUPC(
     response.status(REST.BAD_REQUEST).send();
   }
 }
-
-export default getUPC;

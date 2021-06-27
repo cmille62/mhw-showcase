@@ -2,12 +2,17 @@ import express from "express";
 
 const router = express.Router();
 
-import { getProductByUPC } from "./get";
+import { getProductBySKU } from "./get-sku";
+import { getProductByUPC } from "./get-upc";
+
 import { getAll } from "./get-all";
 import { newProduct } from "./new";
 
-router.get("/:upc", getProductByUPC);
+router.get("/sku/:sku", getProductBySKU);
+router.get("/upc/:upc", getProductByUPC);
+
 router.get("/all", getAll);
+
 router.put("/new/:upc", newProduct);
 
 export default { router };

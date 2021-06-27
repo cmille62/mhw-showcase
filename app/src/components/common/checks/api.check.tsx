@@ -26,8 +26,6 @@ export const APICheck: FunctionComponent<Props> = ({
       .catch(() => {
         setLoading(false);
       });
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <Checks {...{ ...props, loading, failure }} />;
