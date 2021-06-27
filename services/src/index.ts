@@ -4,7 +4,7 @@ import { environment } from "./utils/constants";
 import * as web from "./web";
 
 async function main() {
-  await web.start(environment.PORT);
+  web.start(environment.PORT);
 
   console.log(
     `Server started on port ${environment.PORT}.`

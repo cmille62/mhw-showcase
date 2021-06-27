@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Pane, Spinner, Text } from 'evergreen-ui';
 
-export const Loading = () => {
+export const Loading: FunctionComponent = () => {
   return (
     <Pane
       display="flex"

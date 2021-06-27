@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Card, Heading, Pane } from "evergreen-ui";
-import { ContentPane } from "../pane";
+import { ContentPane } from "../index";
 import { DivProps } from "../../../typings";
 
 interface Props extends DivProps {

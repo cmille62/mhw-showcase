@@ -38,7 +38,7 @@ export const EditForm: FunctionComponent<Props> = observer(({ id }: Props) => {
     } else {
       //TODO: Fetch from id
     }
-  }, [id]);
+  }, [id, productStore.selected]);
 
   return (
     <Pane

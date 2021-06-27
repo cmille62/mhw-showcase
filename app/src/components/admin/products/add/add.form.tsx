@@ -4,7 +4,6 @@ import { observer } from "mobx-react";
 import { APICheck, Page } from "../../../common";
 import { ProductLookup } from "./product.lookup";
 import { AddProductChecks } from "./add.checks";
-import { Link } from "react-router-dom";
 import { Routes } from "../../../../utils";
 
 const AddForm: FunctionComponent = observer(() => {
