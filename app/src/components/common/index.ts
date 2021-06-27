@@ -1,4 +1,3 @@
-
 export * from "./inputs";
 
 export { APICheck } from "./checks/api.check";

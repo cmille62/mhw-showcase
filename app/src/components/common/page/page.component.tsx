@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Card, Heading, Pane } from "evergreen-ui";
-import { ContentPane } from "../index";
+import { ContentPane, PageFooter } from "../index";
 import { DivProps } from "../../../typings";
 
 interface Props extends DivProps {
@@ -24,6 +24,7 @@ export const Page: FunctionComponent<Props> = ({ title, ...props }: Props) => {
       >
         <Pane>{props.children}</Pane>
       </Card>
+      <PageFooter />
     </ContentPane>
   );
 };

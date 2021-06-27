@@ -1,9 +1,9 @@
-const _api_root = process.env.REACT_APP_API_ROOT_URL;
-const _app_root = process.env.REACT_APP_ROOT_URL;
+const apiRoot = process.env.REACT_APP_API_ROOT_URL;
+const appRoot = process.env.REACT_APP_ROOT_URL;
 
-export const REACT_APP_API_ROOT_URL = _api_root;
-export const REACT_APP_ROOT_URL = _app_root;
+export const REACT_APP_API_ROOT_URL = apiRoot;
+export const REACT_APP_ROOT_URL = appRoot;
 
 export const ROLES = {
-    ADMIN: "admin",
-}
+  ADMIN: "admin",
+};

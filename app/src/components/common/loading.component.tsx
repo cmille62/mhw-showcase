@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react';
-import { Pane, Spinner, Text } from 'evergreen-ui';
+import React, { FunctionComponent } from "react";
+import { Pane, Spinner, Text } from "evergreen-ui";
 
 export const Loading: FunctionComponent = () => {
   return (

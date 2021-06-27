@@ -5,17 +5,17 @@ import { isEmpty } from "lodash";
  * @param inputs Inputs to encode
  */
 export function encodeQueryParameters(inputs?: { [key: string]: any }) {
-    if (!inputs || isEmpty(inputs)) {
-      return "";
-    }
-  
-    let result = "?";
-  
-    Object.keys(inputs).forEach((key, index) => {
-      result += `${index !== 0 ? "&" : ""}${key}=${encodeURIComponent(
-        inputs[key]
-      )}`;
-    });
-  
-    return result;
+  if (!inputs || isEmpty(inputs)) {
+    return "";
   }
+
+  let result = "?";
+
+  Object.keys(inputs).forEach((key, index) => {
+    result += `${index !== 0 ? "&" : ""}${key}=${encodeURIComponent(
+      inputs[key]
+    )}`;
+  });
+
+  return result;
+}

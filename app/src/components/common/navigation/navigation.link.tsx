@@ -13,7 +13,7 @@ interface Props {
 export const NavigationLink: FunctionComponent<Props> = ({
   route,
   children,
-}) => {
+}: Props) => {
   const { routerStore } = useRootStore();
   return route || routerStore ? (
     <Button
@@ -32,7 +32,8 @@ export const NavigationLink: FunctionComponent<Props> = ({
       disabled={true}
       paddingLeft={2}
       paddingRight={2}
-      className="navigation-text-only"
+      backgroundColor="transparent"
+      opacity={1}
     >
       {children}
     </Button>

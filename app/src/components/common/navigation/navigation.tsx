@@ -1,8 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Heading, Pane } from "evergreen-ui";
 
-import "./style.scss";
-
 interface Props {
   children: React.ReactChild | React.ReactChild[];
 }
@@ -21,7 +19,7 @@ export const Navigation: FunctionComponent<Props> = ({ children }: Props) => {
   };
 
   return (
-    <Heading size={200} className="application-navigation">
+    <Heading size={200} marginTop={10}>
       <Pane display="flex" flexDirection="row" alignItems="center">
         {React.Children.map(children, (child, index) => {
           if (index <= 0) {

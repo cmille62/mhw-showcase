@@ -1,6 +1,6 @@
-import * as stores from './index';
-import { syncHistoryWithStore, SynchronizedHistory } from 'mobx-react-router';
-import { createBrowserHistory } from 'history';
+import * as stores from "./index";
+import { syncHistoryWithStore, SynchronizedHistory } from "mobx-react-router";
+import { createBrowserHistory } from "history";
 
 export class RootStore {
   public history: SynchronizedHistory;
@@ -14,7 +14,7 @@ export class RootStore {
     const browserHistory = createBrowserHistory();
 
     //TODO: Fetch UID from cookies
-    const uid = ""; 
+    const uid = "";
 
     this.routerStore = new stores.RouterStore();
     this.history = syncHistoryWithStore(browserHistory, this.routerStore);

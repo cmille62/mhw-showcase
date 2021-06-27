@@ -38,7 +38,7 @@ export const Finder: FunctionComponent<Props> = ({ schema }: Props) => {
 
             switch (input) {
               case "Dropdown":
-                return <Dropdown {...inputProps as DropdownProps} />;
+                return <Dropdown {...(inputProps as DropdownProps)} />;
             }
           })}
           <Pane className="matching">

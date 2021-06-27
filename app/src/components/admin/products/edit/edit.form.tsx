@@ -55,8 +55,14 @@ export const EditForm: FunctionComponent<Props> = observer(({ id }: Props) => {
         </Heading>
       </Pane>
       <Page>
-        {Object.values(fields).map((field) => {
-          return <Input title={field.title} value={product[field.path]} />;
+        {Object.values(fields).map((field, index) => {
+          return (
+            <Input
+              key={`edit-form-${index}`}
+              title={field.title}
+              value={product[field.path]}
+            />
+          );
         })}
       </Page>
     </Pane>

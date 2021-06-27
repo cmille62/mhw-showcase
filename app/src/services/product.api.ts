@@ -4,8 +4,12 @@ import { getConfig, postConfig } from "./config";
 import { REACT_APP_API_ROOT_URL } from "../utils/constants";
 import { encodeQueryParameters } from "./utils";
 
-export const getAll = async function (query: {[key: string]: string | number}) {
-  const url = `${REACT_APP_API_ROOT_URL}/products/all${encodeQueryParameters(query)}`;
+export const getAll = async function (query: {
+  [key: string]: string | number;
+}) {
+  const url = `${REACT_APP_API_ROOT_URL}/products/all${encodeQueryParameters(
+    query
+  )}`;
 
   try {
     return await axios.get<Product>(url, getConfig);
@@ -22,7 +26,7 @@ export const get = async function (upc: string) {
   } catch (error) {
     return error;
   }
-}
+};
 
 export const update = async function (product: Product) {
   const url = `${REACT_APP_API_ROOT_URL}/products/update`;

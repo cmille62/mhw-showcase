@@ -41,8 +41,8 @@ export class ProductStore {
   public async getByUPC(upc: string) {
     const response = await ProductAPI.get(upc);
 
-    if(response.status === 200) {
-      if(!response.data) {
+    if (response.status === 200) {
+      if (!response.data) {
         return response.data;
       }
     }

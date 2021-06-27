@@ -1,6 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { Pane, Text } from "evergreen-ui";
-import { ContentPane, Navigation, NavigationLink, Page, PreferencesList } from "../common";
+import {
+  ContentPane,
+  Navigation,
+  NavigationLink,
+  Page,
+  PreferencesList,
+} from "../common";
 
 export const ShowcasePage: FunctionComponent = () => {
   return (

@@ -31,8 +31,12 @@ export const ProductLookup: FunctionComponent<Props> = ({
   return (
     <Section title="Product Lookup" style={{ flexDirection: "column" }}>
       <Pane display="flex">
-        {fields.map((field) => (
-          <Input {...field} props={{ marginX: 4 }} />
+        {fields.map((field, index) => (
+          <Input
+            key={`product-lookup-${index}`}
+            {...field}
+            props={{ marginX: 4 }}
+          />
         ))}
       </Pane>
 

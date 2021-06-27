@@ -59,8 +59,11 @@ export const SideNavigation: FunctionComponent = observer(() => {
           <Heading size={400} marginBottom={5}>
             {title}
           </Heading>
-          {content.map((child) => (
-            <Pane backgroundColor={path === child.path ? SELECTED : ""}>
+          {content.map((child, index) => (
+            <Pane
+              key={`navigation-${index}`}
+              backgroundColor={path === child.path ? SELECTED : ""}
+            >
               <Button
                 id="settings"
                 appearance="minimal"

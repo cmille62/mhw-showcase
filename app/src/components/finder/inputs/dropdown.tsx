@@ -7,7 +7,9 @@ export interface DropdownProps extends InputProps<string> {
   items: InputOption<string>[];
 }
 
-export const Dropdown: FunctionComponent<DropdownProps> = (props: DropdownProps) => {
+export const Dropdown: FunctionComponent<DropdownProps> = (
+  props: DropdownProps
+) => {
   return (
     <Combobox
       {...props}

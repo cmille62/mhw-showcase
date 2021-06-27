@@ -1,16 +1,10 @@
 import React, { FunctionComponent } from "react";
 import { Heading, Pane } from "evergreen-ui";
 
-import "./style.scss";
-
-interface Props {
-
-}
-
-export const Header: FunctionComponent<Props> = () => {
-    return (
-        <Pane className="application-header">
-            <Heading>Miller Hardware Showcase</Heading>
-        </Pane>
-    );
-}
+export const Header: FunctionComponent = () => {
+  return (
+    <Pane paddingX={30} paddingY={10} borderBottom="5px solid red">
+      <Heading>Miller Hardware Showcase</Heading>
+    </Pane>
+  );
+};
