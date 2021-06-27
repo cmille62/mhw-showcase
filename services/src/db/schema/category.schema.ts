@@ -1,7 +1,7 @@
 export const CategorySchema = {
-  category: String,
+  category: { type: String, required: true, unique: true },
   description: String,
-  conversation: [String],
+  conversion: [String],
 };
 
 export default CategorySchema;

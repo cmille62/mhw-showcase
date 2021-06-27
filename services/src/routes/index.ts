@@ -3,12 +3,12 @@ import express, { Request, Response } from "express";
 const router = express.Router();
 
 import br from "./br";
-import options from "./options";
+import collections from "./collections";
 import products from "./products";
 import settings from "./settings";
 
 router.use("/br", br.router);
-router.use("/options/:db", options.router);
+router.use("/collections/:db", collections.router);
 router.use("/products", products.router);
 router.use("/settings", settings.router);
 

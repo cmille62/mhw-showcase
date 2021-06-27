@@ -1,5 +1,5 @@
 export const ActionSchema = {
-  action: String,
+  action: { type: String, required: true, unique: true },
   description: String,
   conversion: [String],
 };

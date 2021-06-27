@@ -4,6 +4,7 @@ import { CaliberType } from "../types";
 
 const schema = new Mongoose.Schema(CaliberSchema, {
   collection: "caliber",
+  timestamps: true,
 });
 
 export const CaliberModel = Mongoose.model<CaliberType>("caliber", schema);

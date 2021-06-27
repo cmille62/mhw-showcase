@@ -1,7 +1,7 @@
 export const CaliberSchema = {
-  caliber: String,
+  caliber: { type: String, required: true, unique: true },
   description: String,
-  conversation: [String],
+  conversion: [String],
 };
 
 export default CaliberSchema;

@@ -4,6 +4,7 @@ import { ActionType } from "../types";
 
 const schema = new Mongoose.Schema(ActionSchema, {
   collection: "action",
+  timestamps: true,
 });
 
 export const ActionModel = Mongoose.model<ActionType>("action", schema);
