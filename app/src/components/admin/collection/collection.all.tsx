@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router";
 import { CollectionAPI } from "../../../services";
 import { Heading, Pane } from "evergreen-ui";
-import { Table } from "../../common/table";
+import { Table } from "../../common";
 import { observer } from "mobx-react";
 import { startCase } from "lodash";
 

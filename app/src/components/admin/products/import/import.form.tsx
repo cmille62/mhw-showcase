@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { Heading, Pane } from "evergreen-ui";
 import { observer } from "mobx-react";
 import { useRootStore } from "../../../../stores";
-import { Table } from "../../../common/table";
+import { Table } from "../../../common";
 import { FileUploadButton } from "../../../common/inputs";
 
 const columns = [

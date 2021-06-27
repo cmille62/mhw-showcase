@@ -20,3 +20,5 @@ export { Page } from "./page/page.component";
 export { PreferencesList } from "./preferences/list.component";
 
 export { Section } from "./section/section";
+
+export { SearchableTable as Table } from "./table/table";

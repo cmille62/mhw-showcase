@@ -1,6 +1,7 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { Pane, Paragraph, SearchInput, Table, Text } from "evergreen-ui";
 import { get } from "lodash";
+import fuzzaldrin from "fuzzaldrin-plus";
 
 interface Props {
   data: Record<string, any>[];
@@ -23,12 +24,26 @@ export const SearchableTable: FunctionComponent<Props> = ({
   columns,
   emptyMessage = "No results",
 }: Props) => {
+  const [search, setSearch] = useState("");
   if (loading) {
     data = [{}, {}, {}, {}];
   }
+
+  let filtered: any[] = [];
+  if (search) {
+    filtered = fuzzaldrin.filter(data, search, { key: columns[0].path });
+  } else {
+    filtered = data;
+  }
+
   return (
     <React.Fragment>
-      <SearchInput marginBottom={8} />
+      <SearchInput
+        marginBottom={8}
+        onChange={({
+          target: { value },
+        }: React.ChangeEvent<HTMLInputElement>) => setSearch(value)}
+      />
       <Table>
         <Table.Head>
           {columns.map((column, index) => (
@@ -38,14 +53,14 @@ export const SearchableTable: FunctionComponent<Props> = ({
           ))}
         </Table.Head>
         <Table.Body>
-          {data.length === 0 && (
+          {filtered.length === 0 && (
             <Pane width="100%" marginY={32}>
               <Paragraph color="muted" textAlign="center">
                 {emptyMessage}
               </Paragraph>
             </Pane>
           )}
-          {data.map((each, i) => (
+          {filtered.map((each, i) => (
             <Table.Row key={`table-row-${i}`}>
               {columns.map((column, index) => (
                 <Table.Cell key={`table-cell-${index}`}>
@@ -60,7 +75,7 @@ export const SearchableTable: FunctionComponent<Props> = ({
           ))}
         </Table.Body>
       </Table>
-      <Text>{loading ? 0 : data.length} Rows</Text>
+      <Text marginTop={8}>{loading ? 0 : data.length} Rows</Text>
     </React.Fragment>
   );
 };
