@@ -11,7 +11,11 @@ export const ProductLookup: FunctionComponent<Props> = ({
   setSKU,
   setUPC,
 }: Props) => {
-  const fields = [
+  const fields: {
+    title: string;
+    key: string;
+    onChange: (value: string) => void;
+  }[] = [
     {
       title: "SKU",
       key: "sku",
@@ -32,11 +36,7 @@ export const ProductLookup: FunctionComponent<Props> = ({
     <Section title="Product Lookup" style={{ flexDirection: "column" }}>
       <Pane display="flex">
         {fields.map((field, index) => (
-          <Input
-            key={`product-lookup-${index}`}
-            {...field}
-            props={{ marginX: 4 }}
-          />
+          <Input {...field} props={{ marginX: 4 }} />
         ))}
       </Pane>
 

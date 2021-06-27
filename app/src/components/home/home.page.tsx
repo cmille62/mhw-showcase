@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { ContentPane, Navigation, NavigationLink } from "../common";
+import { ContentPane, Navigation, NavigationLink, Page } from "../common";
 
 export const HomePage: FunctionComponent = () => {
   return (
@@ -7,6 +7,7 @@ export const HomePage: FunctionComponent = () => {
       <Navigation>
         <NavigationLink>Home</NavigationLink>
       </Navigation>
+      <Page />
     </ContentPane>
   );
 };

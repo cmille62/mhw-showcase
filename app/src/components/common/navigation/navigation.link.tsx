@@ -14,14 +14,14 @@ export const NavigationLink: FunctionComponent<Props> = ({
   route,
   children,
 }: Props) => {
-  const { routerStore } = useRootStore();
-  return route || routerStore ? (
+  return route ? (
     <Button
       id={route}
       appearance="minimal"
       paddingLeft={2}
       paddingRight={2}
-      onClick={() => routerStore?.push(route as string)}
+      is="a"
+      href={route}
     >
       {children}
     </Button>

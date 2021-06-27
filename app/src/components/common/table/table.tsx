@@ -20,7 +20,7 @@ export const SearchableTable: FunctionComponent<Props> = ({
 }: Props) => {
   return (
     <React.Fragment>
-      <SearchInput />
+      <SearchInput marginBottom={8} />
       <Table>
         <Table.Head>
           {columns.map((column, index) => (

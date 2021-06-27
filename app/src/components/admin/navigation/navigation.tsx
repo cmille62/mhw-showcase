@@ -68,7 +68,8 @@ export const SideNavigation: FunctionComponent = observer(() => {
                 id="settings"
                 appearance="minimal"
                 width="100%"
-                onClick={() => routerStore.push(child.path)}
+                is="a"
+                href={child.path}
               >
                 {child.title}
               </Button>
