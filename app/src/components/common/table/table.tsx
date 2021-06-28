@@ -8,6 +8,8 @@ interface Props {
   loading?: boolean;
   emptyMessage?: string;
 
+  children?: React.ReactNode;
+
   columns: {
     title: string;
     key: string;
@@ -19,6 +21,7 @@ interface Props {
 }
 
 export const SearchableTable: FunctionComponent<Props> = ({
+  children,
   loading,
   data,
   columns,
@@ -38,12 +41,15 @@ export const SearchableTable: FunctionComponent<Props> = ({
 
   return (
     <React.Fragment>
-      <SearchInput
-        marginBottom={8}
-        onChange={({
-          target: { value },
-        }: React.ChangeEvent<HTMLInputElement>) => setSearch(value)}
-      />
+      <Pane display="flex">
+        <SearchInput
+          marginBottom={8}
+          onChange={({
+            target: { value },
+          }: React.ChangeEvent<HTMLInputElement>) => setSearch(value)}
+        />
+        {children}
+      </Pane>
       <Table>
         <Table.Head>
           {columns.map((column, index) => (

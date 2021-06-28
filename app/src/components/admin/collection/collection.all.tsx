@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router";
 import { CollectionAPI } from "../../../services";
-import { Heading, Pane } from "evergreen-ui";
+import { AddIcon, Heading, IconButton, Pane } from "evergreen-ui";
 import { Table } from "../../common";
 import { observer } from "mobx-react";
 import { startCase } from "lodash";
@@ -43,7 +43,11 @@ export const CollectionViewAll: FunctionComponent<Props> = observer(
           </Heading>
         </Pane>
 
-        <Table {...{ loading, columns, data }} />
+        <Table {...{ loading, columns, data }}>
+          <Pane width="100%" display="flex" justifyContent="flex-end">
+            <IconButton icon={AddIcon} />
+          </Pane>
+        </Table>
       </Pane>
     );
   }

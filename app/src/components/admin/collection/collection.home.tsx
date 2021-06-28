@@ -7,6 +7,7 @@ const options = [
   { title: "Caliber", value: "caliber" },
   { title: "Action Type", value: "action" },
   { title: "Category", value: "category" },
+  { title: "Manufacturer", value: "manufacturer" },
 ];
 
 export const CollectionHome: FunctionComponent = () => {

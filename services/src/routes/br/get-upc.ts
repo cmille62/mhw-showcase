@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
-import Axios from "axios";
+import Axios, { AxiosResponse } from "axios";
 import { BR_ENDPOINT, REST } from "../../utils";
+import { BrProductType } from "../../types";
 import { BR } from "./authorize";
 
 export async function getByUPC(
@@ -11,9 +12,15 @@ export async function getByUPC(
   const headers = await BR.getHeader();
 
   try {
-    const result = await Axios.get(`${BR_ENDPOINT}/catalog/upc/${upc}`, {
-      headers,
-    });
+    const result: AxiosResponse<BrProductType> = await Axios.get(
+      `${BR_ENDPOINT}/catalog/upc/${upc}`,
+      {
+        headers,
+      }
+    );
+
+    const toParse = result.data;
+
     response.status(REST.OK).send(result.data);
   } catch (error) {
     response.status(REST.BAD_REQUEST).send();

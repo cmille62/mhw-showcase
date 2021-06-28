@@ -1,6 +1,6 @@
 import express, { Request } from "express";
 import * as core from "express-serve-static-core";
-import { ActionModel, CaliberModel, CategoryModel } from "../../db";
+import { ActionModel, CaliberModel, CategoryModel, ManufacturerModel } from "../../db";
 
 const router = express.Router();
 
@@ -21,6 +21,8 @@ function getDb(db: string) {
       return CaliberModel;
     case "category":
       return CategoryModel;
+    case "manufacturer":
+      return ManufacturerModel;
   }
 }
 router.get("/:db/all", (req: T, res) => getAll(req, res, getDb(req.params.db)));

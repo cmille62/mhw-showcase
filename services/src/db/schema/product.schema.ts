@@ -1,19 +1,22 @@
 export const ProductsSchema = {
+  /** Identifying Information */
   upc: { type: String, default: "", required: true, unique: true, index: true },
   sku: String,
-  mfg: String,
-  class: String,
 
+  /** Categorical Information */
+  attributes: Object,
+  category: String,
+  class: String,
   description: String,
 
-  retail: String,
-
+  /** Quantity Information */
   qoh: Number,
 
-  attributes: Object,
+  /** Manufacturing Information */
+  mfg: String,
+  mfgSKU: String,
 
-  lastUpdated: { type: Date, default: Date.now },
-  created: { type: Date, default: Date.now },
+  retail: String,
 };
 
 export default ProductsSchema;
