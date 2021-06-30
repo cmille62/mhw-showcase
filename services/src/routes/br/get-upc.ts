@@ -20,6 +20,10 @@ export async function getByUPC(
     );
 
     const toParse = result.data;
+      if(toParse) {
+
+      }
+
 
     response.status(REST.OK).send(result.data);
   } catch (error) {

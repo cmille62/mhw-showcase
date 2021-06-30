@@ -9,29 +9,29 @@ export const ManufacturerDefaults: RawManufacturerType[] = [
   {
     manufacturer: "American Tactical Inc",
     description: "American Tactical Inc",
-    conversion: [],
+    conversion: [ "ATI", "American Tactical"],
   },
   { manufacturer: "ATN", description: "ATN", conversion: [] },
   {
-    manufacturer: "Auto-Ordnance - Thompson",
+    manufacturer: "Auto-Ordnance",
     description: "Auto-Ordnance - Thompson",
-    conversion: [],
+    conversion: [ "Auto-Ordnance"],
   },
   {
     manufacturer: "Barrett Firearms",
     description: "Barrett Firearms",
-    conversion: [],
+    conversion: ["Barrett"],
   },
   { manufacturer: "Beretta", description: "Beretta", conversion: [] },
   { manufacturer: "Bergara", description: "Bergara", conversion: [] },
   { manufacturer: "Bersa", description: "Bersa", conversion: [] },
-  { manufacturer: "BLACKHAWK!", description: "BLACKHAWK!", conversion: [] },
+  { manufacturer: "BLACKHAWK!", description: "BLACKHAWK!", conversion: ["BLACKHAWK"] },
   { manufacturer: "Bond Arms", description: "Bond Arms", conversion: [] },
   { manufacturer: "Browning", description: "Browning", conversion: [] },
   {
     manufacturer: "Burris Optics",
     description: "Burris Optics",
-    conversion: [],
+    conversion: ["Burris"],
   },
   { manufacturer: "Bushnell", description: "Bushnell", conversion: [] },
   {
@@ -47,7 +47,7 @@ export const ManufacturerDefaults: RawManufacturerType[] = [
   {
     manufacturer: "Chiappa Firearms",
     description: "Chiappa Firearms",
-    conversion: [],
+    conversion: ["Chiappa"],
   },
   {
     manufacturer: "Christensen Arms",
@@ -66,21 +66,21 @@ export const ManufacturerDefaults: RawManufacturerType[] = [
   {
     manufacturer: "Daniel Defense",
     description: "Daniel Defense",
-    conversion: [],
+    conversion: ["DD"],
   },
   {
     manufacturer: "Dead Air Armament",
     description: "Dead Air Armament",
-    conversion: [],
+    conversion: ["Dead Air"],
   },
   { manufacturer: "Del-Ton", description: "Del-Ton", conversion: [] },
   {
     manufacturer: "Diamondback Firearms",
     description: "Diamondback Firearms",
-    conversion: [],
+    conversion: ["Diamondback"],
   },
   { manufacturer: "EO Tech", description: "EO Tech", conversion: [] },
-  { manufacturer: "FN", description: "FN", conversion: [] },
+  { manufacturer: "FN", description: "FN", conversion: ["FNH"] },
   { manufacturer: "Four Peaks", description: "Four Peaks", conversion: [] },
   {
     manufacturer: "Franklin Armory",
@@ -90,19 +90,19 @@ export const ManufacturerDefaults: RawManufacturerType[] = [
   { manufacturer: "Gemtech", description: "Gemtech", conversion: [] },
   { manufacturer: "GLOCK", description: "GLOCK", conversion: [] },
   {
-    manufacturer: "Heckler and Koch (HK USA)",
+    manufacturer: "Heckler and Koch",
     description: "Heckler and Koch (HK USA)",
-    conversion: [],
+    conversion: ["HK"],
   },
   {
     manufacturer: "Henry Repeating Arms",
     description: "Henry Repeating Arms",
-    conversion: [],
+    conversion: ["Henry"],
   },
   {
     manufacturer: "Heritage Manufacturing",
     description: "Heritage Manufacturing",
-    conversion: [],
+    conversion: ["Heritage"],
   },
   { manufacturer: "Hi-Point", description: "Hi-Point", conversion: [] },
   { manufacturer: "HOWA", description: "HOWA", conversion: [] },
@@ -114,16 +114,16 @@ export const ManufacturerDefaults: RawManufacturerType[] = [
   {
     manufacturer: "IWI - Israel Weapon Industries",
     description: "IWI - Israel Weapon Industries",
-    conversion: [],
+    conversion: ["IWI", "Israel Weapon Industries"],
   },
   { manufacturer: "Kahr Arms", description: "Kahr Arms", conversion: [] },
   { manufacturer: "Keltec", description: "Keltec", conversion: [] },
   {
     manufacturer: "Keystone Sporting Arms",
     description: "Keystone Sporting Arms",
-    conversion: [],
+    conversion: ["Keystone"],
   },
-  { manufacturer: "Kriss USA", description: "Kriss USA", conversion: [] },
+  { manufacturer: "Kriss USA", description: "Kriss USA", conversion: ["Kriss"] },
   {
     manufacturer: "Legacy Sports International",
     description: "Legacy Sports International",
@@ -140,9 +140,9 @@ export const ManufacturerDefaults: RawManufacturerType[] = [
   {
     manufacturer: "North American Arms",
     description: "North American Arms",
-    conversion: [],
+    conversion: ["NAA"],
   },
-  { manufacturer: "POF USA", description: "POF USA", conversion: [] },
+  { manufacturer: "POF USA", description: "POF USA", conversion: ["POF"] },
   { manufacturer: "Pointer", description: "Pointer", conversion: [] },
   { manufacturer: "ProMag", description: "ProMag", conversion: [] },
   { manufacturer: "Q", description: "Q", conversion: [] },
@@ -165,13 +165,13 @@ export const ManufacturerDefaults: RawManufacturerType[] = [
   {
     manufacturer: "SCCY Industries",
     description: "SCCY Industries",
-    conversion: [],
+    conversion: ["SCCY"],
   },
   { manufacturer: "SIG SAUER", description: "SIG SAUER", conversion: [] },
   {
     manufacturer: "Sig Sauer Germany",
     description: "Sig Sauer Germany",
-    conversion: [],
+    conversion: ["Sig Sauer", "Sig"],
   },
   { manufacturer: "SilencerCo", description: "SilencerCo", conversion: [] },
   {
@@ -182,7 +182,7 @@ export const ManufacturerDefaults: RawManufacturerType[] = [
   {
     manufacturer: "Smith and Wesson",
     description: "Smith and Wesson",
-    conversion: [],
+    conversion: ["Smith & Wesson"],
   },
   {
     manufacturer: "Springfield Armory",
@@ -210,7 +210,7 @@ export const ManufacturerDefaults: RawManufacturerType[] = [
     description: "TriStar Sporting Arms",
     conversion: [],
   },
-  { manufacturer: "Walther Arms", description: "Walther Arms", conversion: [] },
+  { manufacturer: "Walther Arms", description: "Walther Arms", conversion: ["Walther"] },
   { manufacturer: "Warne", description: "Warne", conversion: [] },
   { manufacturer: "Weatherby", description: "Weatherby", conversion: [] },
   { manufacturer: "Weaver", description: "Weaver", conversion: [] },
@@ -223,16 +223,16 @@ export const ManufacturerDefaults: RawManufacturerType[] = [
   {
     manufacturer: "Yankee Hill Machine Company",
     description: "Yankee Hill Machine Company",
-    conversion: [],
+    conversion: ["YHM"],
   },
   {
     manufacturer: "Zastava Arms USA",
     description: "Zastava Arms USA",
-    conversion: [],
+    conversion: ["Zastava"],
   },
   {
     manufacturer: "ZEV TECHNOLOGIES",
     description: "ZEV TECHNOLOGIES",
-    conversion: [],
+    conversion: ["ZEV"],
   },
 ];

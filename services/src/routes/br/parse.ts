@@ -1,4 +1,4 @@
-import { CategoryModel, RawProductsType } from "../../db";
+import { CategoryModel, ManufacturerModel, RawProductsType } from "../../db";
 import { BrProductType } from "../../types";
 
 /**
@@ -32,8 +32,17 @@ export async function parseDocument({
 
   const parse = description.split(" ");
 
-  result.mfg = parse[0];
-  result.mfgSku = parse[1];
+  const mfg = await ManufacturerModel.findOne({
+    manufacturer: { $regex: parse[0], $options: "i" },
+  });
+
+  result.mfg = mfg.manufacturer;
+  const spaces = result.mfg.match(/\s/g);
+  if (spaces) {
+    result.mfgSku = parse[spaces.length];
+  } else {
+    result.mfgSku = parse[1];
+  }
 
   return result;
 }

@@ -1,13 +1,23 @@
+// eslint-disable-next-line no-undef
 module.exports = {
-  roots: ["<rootDir>/src"],
-  testMatch: [
-    "**/__tests__/**/*.+(ts|tsx|js)",
-    "**/?(*.)+(spec|test).+(ts|tsx|js)",
-  ],
-  transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest",
-  },
   testEnvironment: "node",
-  coveragePathIgnorePatterns: ["/node_modules/"],
-  testTimeout: 1000,
+  globals: {
+    "ts-jest": {
+      tsconfig: "tsconfig.test.json",
+    },
+  },
+  roots: ["<rootDir>/src"],
+  transform: {
+    "^.+\\.(ts|js)x?$": "ts-jest",
+  },
+  testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  collectCoverage: true,
+  coverageDirectory: "coverage",
+  collectCoverageFrom: [
+    "**/*.{ts,tsx}",
+    "!**/node_modules/**",
+    "!**/vendor/**",
+  ],
+  coverageReporters: ["lcov", "text"],
 };
