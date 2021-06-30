@@ -1,3 +1,23 @@
+import { Schema } from "mongoose";
+
+export const BarrelSchema = new Schema({
+  length: Number,
+  threaded: Boolean,
+  pitch: String,
+  device: String,
+});
+
+export const SightSchema = new Schema({
+  font: String,
+  rear: String,
+  optic: String,
+});
+
+export const MagazineSchema = new Schema({
+  capacity: String,
+  qty: Number,
+});
+
 export const ProductsSchema = {
   /** Identifying Information */
   upc: { type: String, default: "", required: true, unique: true, index: true },
@@ -8,6 +28,12 @@ export const ProductsSchema = {
   category: String,
   class: String,
   description: String,
+  model: String,
+
+  /** Other */
+  barrel: BarrelSchema,
+  magazine: [MagazineSchema],
+  sight: SightSchema,
 
   /** Quantity Information */
   qoh: Number,
@@ -16,6 +42,7 @@ export const ProductsSchema = {
   mfg: String,
   mfgSKU: String,
 
+  /** Financial Information */
   retail: String,
 };
 

@@ -40,9 +40,15 @@ export async function parseDocument({
   const spaces = result.mfg.match(/\s/g);
   if (spaces) {
     result.mfgSku = parse[spaces.length];
+    result.model = parse[spaces.length + 1];
   } else {
     result.mfgSku = parse[1];
+    result.model = parse[2];
   }
+
+  const comma = description.split(",");
+
+  result.barrel = { length: comma[1] };
 
   return result;
 }

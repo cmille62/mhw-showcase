@@ -34,10 +34,10 @@ const makeBRDocument = (override?: Partial<BrProductType>): BrProductType => {
 describe("Helper Function: Parse Document",  () => {
     it("Should handle document with little information.", async () => {
 
-        CategoryModel.mockReturnValue(() => {
-            findOne: () => { return { category: "Handgun" } }
-        });
-        ManufacturerModel.mock
+        // CategoryModel.mockReturnValue(() => {
+        //     findOne: () => { return { category: "Handgun" } }
+        // });
+        // ManufacturerModel.mock
 
         const document: BrProductType = makeBRDocument();
         const expected: Partial<RawProductsType> = {

@@ -14,7 +14,7 @@ export async function getByPartNumber(sku: string) {
 }
 
 export async function getByUPC(upc: string) {
-  const url = `${REACT_APP_API_ROOT_URL}/br/part/${upc}`;
+  const url = `${REACT_APP_API_ROOT_URL}/br/upc/${upc}`;
 
   try {
     const result = await axios.get(url, getConfig);

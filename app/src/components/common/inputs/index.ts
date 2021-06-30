@@ -42,3 +42,4 @@ export { CheckboxInput as Checkbox } from "./inline/checkbox.input";
 export { DropdownInput as Dropdown } from "./inline/dropdown.input";
 export { FileUploadButton } from "./fileButton";
 export { Input } from "./input.field";
+export { TextareaField } from "./textarea.field";

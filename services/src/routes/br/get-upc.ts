@@ -3,6 +3,7 @@ import Axios, { AxiosResponse } from "axios";
 import { BR_ENDPOINT, REST } from "../../utils";
 import { BrProductType } from "../../types";
 import { BR } from "./authorize";
+import { parseDocument } from './parse';
 
 export async function getByUPC(
   request: Request<{ upc: string }>,
@@ -19,14 +20,15 @@ export async function getByUPC(
       }
     );
 
-    const toParse = result.data;
-      if(toParse) {
-
-      }
-
-
-    response.status(REST.OK).send(result.data);
+    if (result.data) {
+      const toParse = await parseDocument(result.data);
+      response.status(REST.OK).send(toParse);
+    } else {
+      response.status(REST.OK).send(result.data);
+    }
   } catch (error) {
     response.status(REST.BAD_REQUEST).send();
   }
 }
+
+
