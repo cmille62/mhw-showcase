@@ -37,7 +37,7 @@ export const getBy = async function (value: string, type: string) {
 };
 
 export const update = async function (product: Product) {
-  const url = `${REACT_APP_API_ROOT_URL}/products/update`;
+  const url = `${REACT_APP_API_ROOT_URL}/products`;
 
   try {
     return await axios.put(url, product, postConfig);

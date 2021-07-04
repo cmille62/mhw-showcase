@@ -1,5 +1,5 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
-import { Heading, Pane } from "evergreen-ui";
+import React, { FunctionComponent, useEffect } from "react";
+import { Button, Heading, Pane } from "evergreen-ui";
 import { observer } from "mobx-react";
 import { Page } from "../../../common";
 import { useRootStore } from "../../../../stores";
@@ -17,11 +17,6 @@ interface Props {
 export const EditForm: FunctionComponent<Props> = observer(
   ({ id, ...props }: Props) => {
     const { productStore } = useRootStore();
-
-    // const [product, setProduct] = useState<Product | { [key: string]: any }>(
-    //   productStore.selected || {}
-    // );
-
     const product: Partial<Product> = productStore.selected || {};
     const fields = fetchFields(product.category);
 
@@ -31,7 +26,6 @@ export const EditForm: FunctionComponent<Props> = observer(
       if (!productStore.selected) {
         const result = props.product || {};
         productStore.select(result);
-        // setProduct(result);
       } else {
         //TODO: Fetch from id
       }
@@ -67,6 +61,7 @@ export const EditForm: FunctionComponent<Props> = observer(
               />
             </Pane>
           ))}
+          <Button onClick={() => productStore.save()}>Save</Button>
         </Page>
       </Pane>
     );

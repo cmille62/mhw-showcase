@@ -17,6 +17,7 @@ export class ProductStore {
       get: action,
       select: action,
       clear: action,
+      save: action,
     });
 
     this.products = [{}, {}, {}, {}] as Product[];
@@ -53,5 +54,13 @@ export class ProductStore {
 
   public clear() {
     this.selected = undefined;
+  }
+
+  public async save() {
+    if (this.selected) {
+      const response = await ProductAPI.update(this.selected);
+
+      console.log(response);
+    }
   }
 }

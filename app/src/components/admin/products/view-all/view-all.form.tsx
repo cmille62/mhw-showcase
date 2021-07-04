@@ -6,8 +6,8 @@ import { useRootStore } from "../../../../stores";
 
 const columns = [
   { title: "SKU", key: "sku", path: "sku" },
-  { title: "UPC", key: "upc", path: "sku" },
-  { title: "Description", key: "description", path: "sku" },
+  { title: "UPC", key: "upc", path: "upc" },
+  { title: "Description", key: "description", path: "description" },
 ];
 
 export const ViewAllForm: FunctionComponent = observer(() => {

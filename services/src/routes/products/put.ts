@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { Products } from "../../db";
 import { REST } from "../../utils";
 
-export async function newProduct(
+export async function putProduct(
   request: Request,
   response: Response
 ): Promise<void> {
@@ -14,10 +14,19 @@ export async function newProduct(
   }
 
   try {
-    const result = await Products.create([config]);
+    const { _id } = config;
+    let result = null;
 
-    response.status(REST.NEW).send(result);
+    if (_id) {
+      result = await Products.findByIdAndUpdate(_id, config);
+      response.status(REST.OK).send(result);
+    } else {
+      result = await Products.create([config]);
+      response.status(REST.NEW).send(result);
+    }
+
   } catch (error) {
+      console.log(error);
     response.status(REST.BAD_REQUEST).send();
   }
 }

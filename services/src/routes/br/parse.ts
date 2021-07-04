@@ -1,6 +1,6 @@
 import { CategoryModel, ManufacturerModel, RawProductsType } from "../../db";
 import { BrProductType } from "../../types";
-import { trimWhitespace } from "../../utils";
+import { trimNumber, trimWhitespace } from "../../utils";
 
 /**
  * Parse through the BR API Document and format it as desired.
@@ -49,7 +49,7 @@ export async function parseDocument({
   }
 
   const comma = description.split(",");
-  result.attributes.barrel = { caliber: "", length: comma[1] };
+  result.attributes.barrel = { caliber: "", length: trimNumber(comma[1]) };
   result.attributes.finish = comma[2];
 
   return trimWhitespace(result);
