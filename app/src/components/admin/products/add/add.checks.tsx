@@ -22,7 +22,7 @@ export const AddProductChecks: FunctionComponent<Props> = ({
 
   useEffect(() => {
     findCheck && setCheck(false);
-  }, [type, value]);
+  }, [type, value, findCheck]);
 
   console.log(product);
 

@@ -51,12 +51,7 @@ export class ProductStore {
   }
 
   public async getBy(value: string, type: string) {
-    const response = await ProductAPI.getBy(value, type);
-    if (response.status === 200) {
-      if (!response.data) {
-        return response.data;
-      }
-    }
+    return await ProductAPI.getBy(value, type);
   }
 
   public select(product: Product) {
