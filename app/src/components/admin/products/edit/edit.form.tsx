@@ -7,6 +7,8 @@ import { Product } from "../../../../typings";
 import { cloneDeep, get, set } from "lodash";
 import { fetchFields } from "../../../../utils";
 import { InputController } from "./controller";
+import { toJS } from "mobx";
+
 interface Props {
   id?: string;
   product?: any;
@@ -16,22 +18,24 @@ export const EditForm: FunctionComponent<Props> = observer(
   ({ id, ...props }: Props) => {
     const { productStore } = useRootStore();
 
-    const [product, setProduct] = useState<Product | { [key: string]: any }>(
-      productStore.selected || {}
-    );
+    // const [product, setProduct] = useState<Product | { [key: string]: any }>(
+    //   productStore.selected || {}
+    // );
 
+    const product: Partial<Product> = productStore.selected || {};
     const fields = fetchFields(product.category);
 
-    console.log(product);
+    console.log(toJS(product));
 
     useEffect(() => {
       if (!productStore.selected) {
         const result = props.product || {};
-        setProduct(result);
+        productStore.select(result);
+        // setProduct(result);
       } else {
         //TODO: Fetch from id
       }
-    }, [id, productStore.selected]);
+    }, [id]);
 
     return (
       <Pane
@@ -49,18 +53,19 @@ export const EditForm: FunctionComponent<Props> = observer(
         </Pane>
         <Page>
           {Object.values(fields).map((field, index) => (
-            <InputController
-              key={`input-${index}`}
-              {...{
-                field,
-                value: get(product, field.path),
-                update: (value) => {
-                  const cloned = cloneDeep(product);
-                  set(cloned, field.path, value);
-                  setProduct(cloned);
-                },
-              }}
-            />
+            <Pane marginY={8} key={`input-${index}`}>
+              <InputController
+                {...{
+                  field,
+                  value: get(product, field.path),
+                  update: (value) => {
+                    const cloned: Product = cloneDeep(product) as Product;
+                    set(cloned, field.path, value);
+                    productStore.select(cloned);
+                  },
+                }}
+              />
+            </Pane>
           ))}
         </Page>
       </Pane>

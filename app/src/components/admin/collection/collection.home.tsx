@@ -8,6 +8,7 @@ const options = [
   { title: "Action Type", value: "action" },
   { title: "Category", value: "category" },
   { title: "Manufacturer", value: "manufacturer" },
+  { title: "Safety", value: "safety" },
 ];
 
 export const CollectionHome: FunctionComponent = () => {

@@ -2,18 +2,16 @@ import React, { FunctionComponent } from "react";
 import { Pane } from "evergreen-ui";
 import { DivProps } from "../../../typings";
 
-interface Props {
+interface Props extends DivProps {
   children: React.ReactNode;
-
-  style?: DivProps;
 }
 
-export const ControlPane: FunctionComponent<Props> = ({
+export const ColumnPane: FunctionComponent<Props> = ({
   children,
-  style,
+  ...props
 }: Props) => {
   return (
-    <Pane display="flex" justifyContent="space-between" {...(style || {})}>
+    <Pane display="flex" flexDirection="column" {...props}>
       {children}
     </Pane>
   );

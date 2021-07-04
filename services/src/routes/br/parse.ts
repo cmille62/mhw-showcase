@@ -1,5 +1,6 @@
 import { CategoryModel, ManufacturerModel, RawProductsType } from "../../db";
 import { BrProductType } from "../../types";
+import { trimWhitespace } from "../../utils";
 
 /**
  * Parse through the BR API Document and format it as desired.
@@ -15,6 +16,7 @@ export async function parseDocument({
     description,
     sku: part_number,
     upc,
+    attributes: {},
   };
 
   const category = await CategoryModel.findOne({ category: input.category });
@@ -47,8 +49,8 @@ export async function parseDocument({
   }
 
   const comma = description.split(",");
+  result.attributes.barrel = { caliber: "", length: comma[1] };
+  result.attributes.finish = comma[2];
 
-  result.barrel = { length: comma[1] };
-
-  return result;
+  return trimWhitespace(result);
 }

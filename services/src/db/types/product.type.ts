@@ -15,8 +15,17 @@ export interface RawBarrelType {
 
 export interface RawSightType {
   font?: string;
-    rear?: string;
-    optic?: string;
+  rear?: string;
+  optic?: string;
+}
+
+export interface AttributesType {
+  barrel?: RawBarrelType;
+  magazine?: RawMagazineType[];
+  sight?: RawSightType;
+  safety?: string;
+  finish?: string;
+  [key: string]: any;
 }
 
 export interface RawProductsType {
@@ -25,16 +34,11 @@ export interface RawProductsType {
   sku: string;
 
   /** Categorical Information */
-  attributes: Record<string, any>;
+  attributes: AttributesType;
   category: string;
   class: string;
   description: string;
   model: string;
-
-  /** Other */
-  barrel?: RawBarrelType;
-  magazine?: RawMagazineType[];
-  sight?: RawSightType;
 
   /** Quantity Information */
   qoh: number;
@@ -44,7 +48,7 @@ export interface RawProductsType {
   mfgSku: string;
 
   /** Financial Information */
-  retail: String,
+  retail: string;
 }
 
 export type ProductsType = Document & RawProductsType;

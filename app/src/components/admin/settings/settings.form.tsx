@@ -1,8 +1,9 @@
 import React, { FunctionComponent, useEffect } from "react";
-import { Pane, Heading, Button, Label, Switch, Text } from "evergreen-ui";
+import { Pane, Heading, Button } from "evergreen-ui";
 import { observer } from "mobx-react";
 import { SettingsAPI } from "../../../services";
 import { useRootStore } from "../../../stores";
+import { Setting } from "../../common";
 
 export const SettingsForm: FunctionComponent = observer(() => {
   const { settingsStore } = useRootStore();
@@ -60,19 +61,12 @@ export const SettingsForm: FunctionComponent = observer(() => {
         </Button>
       </Pane>
 
-      <Pane>
-        <Label htmlFor="collaboration" display="block">
-          Turn off Site
-        </Label>
-        <Text>Prevents users from accessing the site</Text>
-        <Switch
-          id="collaboration"
-          checked={settingsStore.preview.live}
-          onChange={({
-            target: { checked },
-          }: React.ChangeEvent<HTMLInputElement>) => setLive(checked)}
-        />
-      </Pane>
+      <Setting
+        title="Turn off Site"
+        description="Prevent users from accessing the site"
+        value={settingsStore.preview.live}
+        onChange={(value) => setLive(value)}
+      />
     </Pane>
   );
 });

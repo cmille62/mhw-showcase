@@ -18,22 +18,25 @@ export const MagazineSchema = new Schema({
   qty: Number,
 });
 
+export const AttributesSchema = new Schema({
+  barrel: BarrelSchema,
+  magazine: [MagazineSchema],
+  sight: SightSchema,
+  safety: String,
+  finish: String,
+});
+
 export const ProductsSchema = {
   /** Identifying Information */
   upc: { type: String, default: "", required: true, unique: true, index: true },
   sku: String,
 
   /** Categorical Information */
-  attributes: Object,
+  attributes: AttributesSchema,
   category: String,
   class: String,
   description: String,
   model: String,
-
-  /** Other */
-  barrel: BarrelSchema,
-  magazine: [MagazineSchema],
-  sight: SightSchema,
 
   /** Quantity Information */
   qoh: Number,

@@ -3,8 +3,11 @@ export * from "./inputs";
 export { APICheck } from "./checks/api.check";
 export { Checks } from "./checks/checks";
 
+export { CenterPane } from "./layout/center.pane";
+export { ColumnPane } from "./layout/column.pane";
+export { ControlPane } from "./layout/control.pane";
+
 export { ContentPane } from "./pane/content.pane";
-export { ControlPane } from "./pane/control.pane";
 
 export { Empty } from "./empty.component";
 
@@ -20,5 +23,5 @@ export { Page } from "./page/page.component";
 export { PreferencesList } from "./preferences/list.component";
 
 export { Section } from "./section/section";
-
+export { Setting } from "./settings/settings.component";
 export { SearchableTable as Table } from "./table/table";

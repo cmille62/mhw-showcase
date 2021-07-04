@@ -4,3 +4,4 @@ export { CategoryType, RawCategoryType } from "./category.type";
 export { ManufacturerType, RawManufacturerType } from "./manufacturer.type";
 export { ProductsType, RawProductsType } from "./product.type";
 export { SettingsType } from "./setting.type";
+export { SafetyType, RawSafetyType } from "./safety.type";

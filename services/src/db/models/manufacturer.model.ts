@@ -7,6 +7,9 @@ const schema = new Mongoose.Schema(ManufacturerSchema, {
   timestamps: true,
 });
 
-export const ManufacturerModel = Mongoose.model<ManufacturerType>("Manufacturer", schema);
+export const ManufacturerModel = Mongoose.model<ManufacturerType>(
+  "Manufacturer",
+  schema
+);
 
 export default ManufacturerModel;

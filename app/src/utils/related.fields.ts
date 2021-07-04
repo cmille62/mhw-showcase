@@ -1,41 +1,53 @@
-import { FieldType } from "../typings/fields";
+import { FieldType } from "../typings";
 
 const generic: FieldType[] = [
-  { title: "SKU", key: "sku", path: "sku" },
+  { title: "SKU", key: "sku", path: "sku", required: true },
   { title: "MFG Part Number", key: "mfgSku", path: "mfgSku" },
   { title: "UPC", key: "upc", path: "upc" },
   { title: "Title", key: "title", path: "title" },
-  { title: "Category", key: "category", path: "category" },
+  { title: "Category", key: "category", path: "category", required: true },
   { title: "Manufacturer", key: "manufacturer", path: "mfg" },
   {
     title: "Description",
     key: "description",
     path: "description",
     type: "textarea",
+    required: true,
   },
 ];
 
 const firearmFields: FieldType[] = [
   { title: "Model", key: "model", path: "model" },
-  { title: "Finish", key: "finish", path: "finish" },
-  { title: "Capacity", key: "capacity", path: "capacity" },
+  { title: "Finish", key: "finish", path: "attributes.finish" },
+];
+
+const safetyFields: FieldType[] = [
+  { title: "Safety", key: "safety", path: "attributes.safety" },
 ];
 
 const barreledFields: FieldType[] = [
-  { title: "Barrel Length", key: "barrelLength", path: "barrel.length" },
-  { title: "Front Sight", key: "frontSight", path: "sight.front" },
-  { title: "Rear Sight", key: "rearSight", path: "sight.rear" },
-  { title: "Rear Optic", key: "rearSight", path: "sight.optic" },
-  { title: "Caliber", key: "caliber", path: "barrel.caliber" },
+  {
+    title: "Barrel Length",
+    key: "barrelLength",
+    path: "attributes.barrel.length",
+  },
+  { title: "Front Sight", key: "frontSight", path: "attributes.sight.front" },
+  { title: "Rear Sight", key: "rearSight", path: "attributes.sight.rear" },
+  { title: "Rear Optic", key: "rearSight", path: "attributes.sight.optic" },
+  { title: "Caliber", key: "caliber", path: "attributes.barrel.caliber" },
 ];
 
 const magazineField: FieldType[] = [
   {
     title: "Magazine Capacity",
     key: "magazineCapacity",
-    path: "magazine.capacity",
+    path: "attributes.magazine.capacity",
   },
-  { title: "Magazine Qty", key: "magazineQty", path: "magazine.qty" },
+  {
+    title: "Magazine Qty",
+    key: "magazineQty",
+    path: "attributes.magazine.qty",
+  },
 ];
 
 const tacticalField: FieldType[] = [
@@ -43,11 +55,19 @@ const tacticalField: FieldType[] = [
   {
     title: "Thread Pitch",
     key: "threadPitch",
-    path: "barrel.threaded",
+    path: "attributes.barrel.threaded",
     type: "boolean",
   },
-  { title: "Thread Pitch", key: "threadPitch", path: "barrel.pitch" },
-  { title: "Muzzle Device", key: "muzzleDevice", path: "barrel.device" },
+  {
+    title: "Thread Pitch",
+    key: "threadPitch",
+    path: "attributes.barrel.pitch",
+  },
+  {
+    title: "Muzzle Device",
+    key: "muzzleDevice",
+    path: "attributes.barrel.device",
+  },
 ];
 
 export const fields: Record<string, FieldType[]> = {
@@ -58,7 +78,7 @@ export const fields: Record<string, FieldType[]> = {
   tacticalField,
 };
 
-export const fetchFields = (type: string) => {
+export const fetchFields = (type?: string) => {
   switch (type) {
     case "Rifle":
     case "Handgun":
@@ -68,6 +88,7 @@ export const fetchFields = (type: string) => {
         ...barreledFields,
         ...magazineField,
         ...tacticalField,
+        ...safetyFields,
       ];
   }
 

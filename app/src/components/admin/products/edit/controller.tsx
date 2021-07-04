@@ -15,7 +15,7 @@ export const InputController: FunctionComponent<Props> = ({
   update,
 }: Props) => {
   const props = {
-    title: field.title,
+    ...field,
     value,
     onChange: (value: any) => update(value),
   };

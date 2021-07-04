@@ -9,13 +9,13 @@ export const ManufacturerDefaults: RawManufacturerType[] = [
   {
     manufacturer: "American Tactical Inc",
     description: "American Tactical Inc",
-    conversion: [ "ATI", "American Tactical"],
+    conversion: ["ATI", "American Tactical"],
   },
   { manufacturer: "ATN", description: "ATN", conversion: [] },
   {
     manufacturer: "Auto-Ordnance",
     description: "Auto-Ordnance - Thompson",
-    conversion: [ "Auto-Ordnance"],
+    conversion: ["Auto-Ordnance"],
   },
   {
     manufacturer: "Barrett Firearms",
@@ -25,7 +25,11 @@ export const ManufacturerDefaults: RawManufacturerType[] = [
   { manufacturer: "Beretta", description: "Beretta", conversion: [] },
   { manufacturer: "Bergara", description: "Bergara", conversion: [] },
   { manufacturer: "Bersa", description: "Bersa", conversion: [] },
-  { manufacturer: "BLACKHAWK!", description: "BLACKHAWK!", conversion: ["BLACKHAWK"] },
+  {
+    manufacturer: "BLACKHAWK!",
+    description: "BLACKHAWK!",
+    conversion: ["BLACKHAWK"],
+  },
   { manufacturer: "Bond Arms", description: "Bond Arms", conversion: [] },
   { manufacturer: "Browning", description: "Browning", conversion: [] },
   {
@@ -123,7 +127,11 @@ export const ManufacturerDefaults: RawManufacturerType[] = [
     description: "Keystone Sporting Arms",
     conversion: ["Keystone"],
   },
-  { manufacturer: "Kriss USA", description: "Kriss USA", conversion: ["Kriss"] },
+  {
+    manufacturer: "Kriss USA",
+    description: "Kriss USA",
+    conversion: ["Kriss"],
+  },
   {
     manufacturer: "Legacy Sports International",
     description: "Legacy Sports International",
@@ -210,7 +218,11 @@ export const ManufacturerDefaults: RawManufacturerType[] = [
     description: "TriStar Sporting Arms",
     conversion: [],
   },
-  { manufacturer: "Walther Arms", description: "Walther Arms", conversion: ["Walther"] },
+  {
+    manufacturer: "Walther Arms",
+    description: "Walther Arms",
+    conversion: ["Walther"],
+  },
   { manufacturer: "Warne", description: "Warne", conversion: [] },
   { manufacturer: "Weatherby", description: "Weatherby", conversion: [] },
   { manufacturer: "Weaver", description: "Weaver", conversion: [] },

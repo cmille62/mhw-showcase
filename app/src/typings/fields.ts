@@ -18,6 +18,7 @@ export interface FieldType {
   key: string;
   path: string;
 
+  required?: boolean;
   type?: FieldInputType;
   values?: string[];
 }

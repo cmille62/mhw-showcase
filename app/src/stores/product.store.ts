@@ -19,7 +19,7 @@ export class ProductStore {
       clear: action,
     });
 
-    this.products = [{ _id: "" }, { _id: "" }, { _id: "" }, { _id: "" }];
+    this.products = [{}, {}, {}, {}] as Product[];
     this.get();
   }
 
