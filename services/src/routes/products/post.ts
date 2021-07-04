@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { Products } from "../../db";
 import { REST } from "../../utils";
 
-export async function newProduct(
+export async function postProduct(
   request: Request,
   response: Response
 ): Promise<void> {

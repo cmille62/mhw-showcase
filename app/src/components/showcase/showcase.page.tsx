@@ -1,14 +1,20 @@
 import React, { FunctionComponent } from "react";
+import { ShowcaseContent } from "./showcase.content";
 import { Pane, Text } from "evergreen-ui";
 import {
   ContentPane,
   Navigation,
   NavigationLink,
-  Page,
   PreferencesList,
 } from "../common";
+import { RouteComponentProps } from "react-router";
+import { parsePaginationQuery } from "../../utils";
 
-export const ShowcasePage: FunctionComponent = () => {
+type Props = RouteComponentProps;
+
+export const ShowcasePage: FunctionComponent<Props> = ({ location }: Props) => {
+  const props = parsePaginationQuery(location);
+
   return (
     <ContentPane>
       <Navigation>
@@ -21,7 +27,7 @@ export const ShowcasePage: FunctionComponent = () => {
           </Text>
           <PreferencesList />
         </Pane>
-        <Page></Page>
+        <ShowcaseContent {...props} />
       </ContentPane>
     </ContentPane>
   );

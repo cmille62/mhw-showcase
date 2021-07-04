@@ -1,4 +1,4 @@
-import { observable, action, makeObservable } from "mobx";
+import { observable, action, makeObservable, runInAction } from "mobx";
 import { Product } from "../typings";
 import { ProductAPI } from "../services";
 
@@ -6,6 +6,7 @@ type ProductAPI = typeof ProductAPI;
 
 export class ProductStore {
   products: Product[];
+  count = 0;
   selected?: Product;
 
   error?: string;
@@ -14,6 +15,7 @@ export class ProductStore {
     makeObservable(this, {
       products: observable,
       selected: observable,
+      count: observable,
       get: action,
       select: action,
       clear: action,
@@ -26,6 +28,7 @@ export class ProductStore {
 
   public async get(query?: { [key: string]: string | number }) {
     const response = await ProductAPI.getAll(query as any);
+    this.getCount((query?.query as string) || "");
     if (response.status === 200) {
       if (this.error) {
         this.error = undefined;
@@ -37,6 +40,14 @@ export class ProductStore {
     } else {
       this.error = "Fail";
     }
+  }
+
+  public async getCount(query: string) {
+    const response = await ProductAPI.getCount(query);
+
+    runInAction(() => {
+      this.count = response.data?.qty || 0;
+    });
   }
 
   public async getBy(value: string, type: string) {

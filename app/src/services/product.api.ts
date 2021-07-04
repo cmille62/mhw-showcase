@@ -12,7 +12,21 @@ export const getAll = async function (query: {
   )}`;
 
   try {
-    return await axios.get<Product>(url, getConfig);
+    return await axios.get<Product[]>(url, getConfig);
+  } catch (error) {
+    return error;
+  }
+};
+
+export const getPagination = async function (query: {
+  [key: string]: string | number;
+}) {
+  const url = `${REACT_APP_API_ROOT_URL}/products/page${encodeQueryParameters(
+    query
+  )}`;
+
+  try {
+    return await axios.get<Product[]>(url, getConfig);
   } catch (error) {
     return error;
   }
@@ -36,6 +50,16 @@ export const getBy = async function (value: string, type: string) {
   }
 };
 
+export const getCount = async function (query: string) {
+  const url = `${REACT_APP_API_ROOT_URL}/products/count/${query}`;
+
+  try {
+    return await axios.get<{ qty: number }>(url, getConfig);
+  } catch (error) {
+    return error;
+  }
+};
+
 export const update = async function (product: Product) {
   const url = `${REACT_APP_API_ROOT_URL}/products`;
 
@@ -51,6 +75,8 @@ export const api = {
   getByUPC,
   getBySKU,
 
+  getCount,
+  getPagination,
   getAll,
   update,
 };
