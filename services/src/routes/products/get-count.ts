@@ -22,11 +22,11 @@ export async function getTotalDocumentCount(
         },
       ]);
     } else {
-        result = await Products.aggregate([
-            {
-              $count: "qty",
-            },
-          ]);
+      result = await Products.aggregate([
+        {
+          $count: "qty",
+        },
+      ]);
     }
 
     console.log(result);

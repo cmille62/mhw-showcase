@@ -4,6 +4,7 @@ import { Routes, structureRoute } from "../../../utils";
 import { Page } from "../../common";
 
 const options = [
+  { title: "Documentation", value: "docs" },
   { title: "Caliber", value: "caliber" },
   { title: "Action Type", value: "action" },
   { title: "Category", value: "category" },

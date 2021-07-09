@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router";
 import { CollectionAPI } from "../../../services";
-import { AddIcon, Heading, IconButton, Pane } from "evergreen-ui";
+import { AddIcon, Button, Heading, IconButton, Pane } from "evergreen-ui";
 import { Table } from "../../common";
 import { observer } from "mobx-react";
 import { startCase } from "lodash";
@@ -48,6 +48,10 @@ export const CollectionViewAll: FunctionComponent<Props> = observer(
             <IconButton icon={AddIcon} />
           </Pane>
         </Table>
+
+        <Button intent="danger" onClick={() => CollectionAPI.reset(collection)}>
+          Reset Collection
+        </Button>
       </Pane>
     );
   }

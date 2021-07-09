@@ -41,6 +41,20 @@ export const Routes = {
     path: formatRoute("/view"),
     roles: [],
   },
+  Docs: {
+    Router: {
+      path: formatRoute("/docs/:page"),
+      roles: [],
+    },
+    Home: {
+      path: formatRoute("/docs/home"),
+      roles: [],
+    },
+    FAQ: {
+      path: formatRoute("/docs/faq"),
+      roles: [],
+    },
+  },
   Admin: {
     Router: {
       path: formatRoute("/admin/:page"),

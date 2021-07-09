@@ -3,11 +3,10 @@ import { Switch, Route, Redirect } from "react-router-dom";
 // import { AddPage, ImportPage, SettingsPage } from "../components/admin";
 import { BaseRoute, Routes } from "../utils";
 
-import { HomePage, ShowcasePage } from "../components";
+import { AdminRouter, DocsRouter, HomePage, ShowcasePage } from "../components";
 import { Header } from "../components/common";
 
 import "./style.scss";
-import { AdminRouter } from "../components/admin";
 
 const App: React.FunctionComponent = () => {
   return (
@@ -21,6 +20,9 @@ const App: React.FunctionComponent = () => {
           render={() => <Redirect to={Routes.Home.path} />}
         />
         <Route {...Routes.Home} component={HomePage} />
+        
+        {/************** Application Pages ****************/}
+        <Route {...Routes.Docs.Router} component={DocsRouter} />
 
         {/************** Application Pages ****************/}
         <Route {...Routes.Showcase} component={ShowcasePage} />

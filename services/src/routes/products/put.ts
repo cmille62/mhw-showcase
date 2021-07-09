@@ -24,9 +24,8 @@ export async function putProduct(
       result = await Products.create([config]);
       response.status(REST.NEW).send(result);
     }
-
   } catch (error) {
-      console.log(error);
+    console.log(error);
     response.status(REST.BAD_REQUEST).send();
   }
 }
