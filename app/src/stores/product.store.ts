@@ -1,6 +1,7 @@
 import { observable, action, makeObservable, runInAction } from "mobx";
 import { Product } from "../typings";
 import { ProductAPI } from "../services";
+import { warn } from "../utils/alert";
 
 type ProductAPI = typeof ProductAPI;
 
@@ -66,7 +67,7 @@ export class ProductStore {
     if (this.selected) {
       const response = await ProductAPI.update(this.selected);
 
-      console.log(response);
+      warn(response);
     }
   }
 }

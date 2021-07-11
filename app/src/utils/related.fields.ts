@@ -1,17 +1,28 @@
-import { FieldType } from "../typings";
+import { FieldType, FIELD_INPUT } from "../typings";
 
 const generic: FieldType[] = [
   { title: "SKU", key: "sku", path: "sku", required: true },
   { title: "MFG Part Number", key: "mfgSku", path: "mfgSku" },
   { title: "UPC", key: "upc", path: "upc" },
   { title: "Title", key: "title", path: "title" },
-  { title: "Category", key: "category", path: "category", required: true },
-  { title: "Manufacturer", key: "manufacturer", path: "mfg" },
+  {
+    title: "Category",
+    key: "category",
+    path: "category",
+    type: FIELD_INPUT.Lookup,
+    required: true,
+  },
+  {
+    title: "Manufacturer",
+    key: "manufacturer",
+    type: FIELD_INPUT.Lookup,
+    path: "mfg",
+  },
   {
     title: "Description",
     key: "description",
     path: "description",
-    type: "textarea",
+    type: FIELD_INPUT.Textarea,
     required: true,
   },
 ];
@@ -22,7 +33,12 @@ const firearmFields: FieldType[] = [
 ];
 
 const safetyFields: FieldType[] = [
-  { title: "Safety", key: "safety", path: "attributes.safety" },
+  {
+    title: "Safety",
+    key: "safety",
+    type: FIELD_INPUT.Lookup,
+    path: "attributes.safety",
+  },
 ];
 
 const barreledFields: FieldType[] = [
@@ -34,7 +50,12 @@ const barreledFields: FieldType[] = [
   { title: "Front Sight", key: "frontSight", path: "attributes.sight.front" },
   { title: "Rear Sight", key: "rearSight", path: "attributes.sight.rear" },
   { title: "Rear Optic", key: "rearSight", path: "attributes.sight.optic" },
-  { title: "Caliber", key: "caliber", path: "attributes.barrel.caliber" },
+  {
+    title: "Caliber",
+    key: "caliber",
+    type: FIELD_INPUT.Lookup,
+    path: "attributes.barrel.caliber",
+  },
 ];
 
 const magazineField: FieldType[] = [

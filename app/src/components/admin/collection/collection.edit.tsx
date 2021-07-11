@@ -12,11 +12,13 @@ import { RouteComponentProps } from "react-router";
 import { CollectionAPI } from "../../../services";
 import { Routes, structureRoute } from "../../../utils";
 import { cloneDeep, get, set } from "lodash";
+import { useRootStore } from "../../../stores";
 
 type Props = RouteComponentProps<{ collection: string; id: string }>;
 
 export const CollectionEdit: FunctionComponent<Props> = ({ match }: Props) => {
   const { collection, id } = match.params;
+  const { collectionStore } = useRootStore();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({});
   const schema = Schema[collection];
@@ -58,12 +60,7 @@ export const CollectionEdit: FunctionComponent<Props> = ({ match }: Props) => {
               <AsyncMultiSelectField
                 {...{ ...props, ...each }}
                 fetchValues={async () => {
-                  const result = await CollectionAPI.distinct(
-                    collection,
-                    each.path
-                  );
-
-                  return result.data || [];
+                  return collectionStore.fetch(collection, each.path);
                 }}
               />
             );

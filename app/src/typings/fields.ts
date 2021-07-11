@@ -3,7 +3,8 @@ export type FieldInputType =
   | "textarea"
   | "boolean"
   | "enum"
-  | "number";
+  | "number"
+  | "lookup";
 
 export const FIELD_INPUT: Record<string, FieldInputType> = {
   Text: "text",
@@ -11,6 +12,7 @@ export const FIELD_INPUT: Record<string, FieldInputType> = {
   Boolean: "boolean",
   Enum: "enum",
   Number: "number",
+  Lookup: "lookup",
 };
 
 export interface FieldType {

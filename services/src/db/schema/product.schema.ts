@@ -1,6 +1,7 @@
 import { Schema } from "mongoose";
 
 export const BarrelSchema = new Schema({
+  caliber: String,
   length: Number,
   threaded: Boolean,
   pitch: String,
