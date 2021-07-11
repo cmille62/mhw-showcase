@@ -82,28 +82,46 @@ export const DocsDefaults: RawDocsType[] = [
     ],
   },
   {
-    category: ["misc"],
+    category: ["misc", "background-check"],
     title: "How long does it take to purchases a firearm?",
     description:
       "Within Virginia there is no waiting period, however background-checks can take varying amounts of time depending on the person. The majority of our customers are between 15 and 30 minuets, but you could be longer.",
   },
   {
-    category: ["misc"],
+    category: ["misc", "background-check"],
     title: "Do I have to do a background check every time?",
     description:
       "Every time you come to purchases a firearm, you must fill out a new background check. This is required by law and there is no way around it.",
   },
   {
-    category: ["transfers"],
+    category: ["misc", "background-check"],
+    title: "How much does a background check cost?",
+    description:
+      "We charge what Virginia charges us, 2$ for Virginia Residents, and 5$ for out of state residents. This amount is due regardless and is non-refundable.",
+  },
+  {
+    category: ["returns"],
+    title: "Return policy on firearms.",
+    description:
+      "We do not return firearms. Once transferred, it is yours. However we do purchases or consign firearms, and would be happy to tell you what we would buy it for.",
+  },
+  {
+    category: ["used-firearms"],
+    title: "How can I sell you my firearm?",
+    description:
+      "You must bring in your firearm for a quote of how much we would pay you for it. As long as its unloaded, you are free to bring it in.",
+  },
+  {
+    category: ["transfer"],
     title: "Do you conduct third-party transfers?",
     description:
       "We conduct transfers that are both mailed in and brought in person, for transfers originating from an individual we conduct a stolen-firearm check. Fees apply.",
   },
   {
-    category: ["transfers"],
+    category: ["transfer"],
     title: "How much do you charge for a transfer?",
     description:
-      "Our transfers are 50$ for the first firearm, and 25$ for each additional firearm on the same transaction.",
+      "Our transfers are 50$ for the first firearm, and 25$ for each additional firearm on the same background check.",
   },
   {
     category: ["nfa"],

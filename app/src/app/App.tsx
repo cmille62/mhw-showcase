@@ -20,7 +20,7 @@ const App: React.FunctionComponent = () => {
           render={() => <Redirect to={Routes.Home.path} />}
         />
         <Route {...Routes.Home} component={HomePage} />
-        
+
         {/************** Application Pages ****************/}
         <Route {...Routes.Docs.Router} component={DocsRouter} />
 

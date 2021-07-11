@@ -9,6 +9,8 @@ export { ControlPane } from "./layout/control.pane";
 
 export { ContentPane } from "./pane/content.pane";
 
+export { DeleteModal } from "./modal/delete.modal";
+
 export { Empty } from "./empty.component";
 
 export { Header } from "./header/header.component";

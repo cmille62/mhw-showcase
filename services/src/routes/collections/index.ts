@@ -13,6 +13,7 @@ const router = express.Router();
 
 import { get } from "./get";
 import { getAll } from "./get-all";
+import { getDistinct } from "./get-distinct";
 import { post } from "./post";
 import { put } from "./put";
 import { reset } from "./reset";
@@ -37,6 +38,7 @@ function getDb(db: string) {
       return DocsModel;
   }
 }
+router.get("/:db/distinct/:path", (req: T<{path: string}>, res) => getDistinct(req, res, getDb(req.params.db)));
 router.get("/:db/all", (req: T, res) => getAll(req, res, getDb(req.params.db)));
 router.get("/:db/:id", (req: T<{ id: string }>, res) =>
   get(req, res, getDb(req.params.db))

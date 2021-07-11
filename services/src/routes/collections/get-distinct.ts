@@ -2,15 +2,16 @@ import { Request, Response } from "express";
 import { REST } from "../../utils";
 import { Model } from "mongoose";
 
-export async function get(
-  request: Request<{ id: string }>,
+export async function getDistinct(
+  request: Request<{ path: string }>,
   response: Response,
   db: Model<any>
 ): Promise<void> {
-  const { id } = request.params;
+  const { path } = request.params;
   try {
-    const document = await db.findOne({ _id: id });
-    response.status(REST.OK).send(document);
+    db.distinct(path, function (err, distinct) {
+      response.status(REST.OK).send(distinct);
+    });
   } catch (error) {
     response.status(REST.BAD_REQUEST).send();
   }

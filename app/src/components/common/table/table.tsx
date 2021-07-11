@@ -1,7 +1,16 @@
 import React, { FunctionComponent, useState } from "react";
-import { Pane, Paragraph, SearchInput, Table, Text } from "evergreen-ui";
+import {
+  Link,
+  Pane,
+  Paragraph,
+  SearchInput,
+  Table,
+  Text,
+  Tooltip,
+} from "evergreen-ui";
 import { get } from "lodash";
 import fuzzaldrin from "fuzzaldrin-plus";
+import { truncate } from "../../../utils";
 
 interface Props {
   data: Record<string, any>[];
@@ -10,6 +19,7 @@ interface Props {
 
   children?: React.ReactNode;
 
+  link?: (doc: any) => string;
   columns: {
     title: string;
     key: string;
@@ -23,6 +33,7 @@ interface Props {
 export const SearchableTable: FunctionComponent<Props> = ({
   children,
   loading,
+  link,
   data,
   columns,
   emptyMessage = "No results",
@@ -73,7 +84,27 @@ export const SearchableTable: FunctionComponent<Props> = ({
                   {column.render ? (
                     column.render
                   ) : (
-                    <Text>{get(each, column.path, column.default || "")}</Text>
+                    <Tooltip
+                      content={get(each, column.path, column.default || "")}
+                    >
+                      {link ? (
+                        <Link href={link(each)}>
+                          <Text>
+                            {truncate(
+                              get(each, column.path, column.default || ""),
+                              110
+                            )}
+                          </Text>
+                        </Link>
+                      ) : (
+                        <Text>
+                          {truncate(
+                            get(each, column.path, column.default || ""),
+                            110
+                          )}
+                        </Text>
+                      )}
+                    </Tooltip>
                   )}
                 </Table.Cell>
               ))}

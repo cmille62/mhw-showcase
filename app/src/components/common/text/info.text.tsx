@@ -1,25 +1,35 @@
 import React, { FunctionComponent } from "react";
-import { Card, Heading, Paragraph, Pane } from "evergreen-ui";
+import {
+  Card,
+  Heading,
+  Paragraph,
+  Pane,
+  UnorderedList,
+  ListItem,
+} from "evergreen-ui";
+import { DocsType } from "../../../typings";
 
-interface Props {
-  title: string;
-  description: string;
-  children?: React.ReactNode;
-}
-
-export const InfoText: FunctionComponent<Props> = ({
+export const InfoText: FunctionComponent<DocsType> = ({
   title,
   description,
-  children,
-}: Props) => {
+  examples,
+}: DocsType) => {
   return (
-    <Card>
+    <Card background="tint1" padding={8} margin={16}>
       <Pane borderBottom="muted">
         <Heading>{title}</Heading>
       </Pane>
       <Pane>
-        <Paragraph>{description}</Paragraph>
-        {children}
+        <Paragraph margin={16}>{description}</Paragraph>
+        {examples && (
+          <Pane marginX={32}>
+            <UnorderedList>
+              {examples.map((each) => (
+                <ListItem key={each}>{each}</ListItem>
+              ))}
+            </UnorderedList>
+          </Pane>
+        )}
       </Pane>
     </Card>
   );
