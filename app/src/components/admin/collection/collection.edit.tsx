@@ -43,6 +43,7 @@ export const CollectionEdit: FunctionComponent<Props> = ({ match }: Props) => {
     <Pane width={425} marginX="auto">
       {schema.map(({ type, ...each }) => {
         const props = {
+          key: each.path,
           value: get(data, each.path, ""),
           onChange: (value: any) => update(value, each.path),
         };

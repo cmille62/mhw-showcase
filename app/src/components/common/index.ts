@@ -29,3 +29,4 @@ export { Setting } from "./settings/settings.component";
 export { SearchableTable as Table } from "./table/table";
 
 export { InfoText } from "./text/info.text";
+export { InputWrapper } from "./layout/input.wrapper";

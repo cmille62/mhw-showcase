@@ -43,6 +43,7 @@ export { DropdownInput as Dropdown } from "./inline/dropdown.input";
 export { SelectField } from "./select.field";
 export { AsyncSelectField } from "./async.select.field";
 export { AsyncMultiSelectField } from "./async.multiselect.field";
+export { MultiSelectField } from "./multiselect.field";
 export { FileUploadButton } from "./fileButton";
 export { Input } from "./input.field";
 export { TextareaField } from "./textarea.field";

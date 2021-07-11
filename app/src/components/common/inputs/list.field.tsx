@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import { Pane, IconButton, TextInput, CrossIcon, PlusIcon } from "evergreen-ui";
 import { Field } from "../field";
 import { InputProps } from "./index";
@@ -16,7 +16,7 @@ export const ListField: FunctionComponent<Props> = ({
     props.onChange && props.onChange(result);
   };
   const onDelete = (i: number) => {
-    const result = (value || []).filter((_, index) => index === i);
+    const result = (value || []).filter((_, index) => index !== i);
     props.onChange && props.onChange(result);
   };
   const onAddition = (update: string) => {
@@ -51,13 +51,18 @@ const p = {
 };
 
 const ListItem: FunctionComponent<ListProps> = ({
-  value,
+  value = "",
   index = -1,
   onChange,
   onDelete,
   onAddition,
 }: ListProps) => {
-  const [internal, setInternal] = useState(value || "");
+  const [internal, setInternal] = useState(value);
+
+  useEffect(() => {
+    setInternal(value);
+  }, [value]);
+
   return (
     <Pane display="flex" marginTop={8}>
       <TextInput
@@ -69,6 +74,21 @@ const ListItem: FunctionComponent<ListProps> = ({
         onBlur={({ target: { value } }: React.ChangeEvent<HTMLInputElement>) =>
           onChange && onChange(value, index)
         }
+        onKeyDown={(event?: React.KeyboardEvent<HTMLInputElement>) => {
+          if (event) {
+            switch (event.code) {
+              case "Tab": // Tab
+              case "Enter": // Enter
+                if (onAddition) {
+                  onAddition(internal);
+                  setInternal("");
+                }
+                break;
+              default:
+                break;
+            }
+          }
+        }}
       />
       {onDelete && (
         <IconButton {...p} icon={CrossIcon} onClick={() => onDelete(index)} />

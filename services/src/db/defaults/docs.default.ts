@@ -59,6 +59,12 @@ export const DocsDefaults: RawDocsType[] = [
       "Our layaway policy is 20% down for 90 days. Call for more information.",
   },
   {
+    category: ["gunsmithing"],
+    title: "What sort of gunsmithing do you do?",
+    description:
+      "We preform a variety of gunsmithing tasks including threading barrels, repairing firearms, cleanings, etc. Call for details.",
+  },
+  {
     category: ["layaway", "nfa"],
     title: "What can I put on layaway?",
     description:
@@ -85,7 +91,7 @@ export const DocsDefaults: RawDocsType[] = [
     category: ["misc", "background-check"],
     title: "How long does it take to purchases a firearm?",
     description:
-      "Within Virginia there is no waiting period, however background-checks can take varying amounts of time depending on the person. The majority of our customers are between 15 and 30 minuets, but you could be longer.",
+      "Within Virginia there is no waiting period, however, background-checks can take varying amounts of time depending on the person. The majority of our customers are between 15 and 30 minuets, but you could be longer.",
   },
   {
     category: ["misc", "background-check"],
@@ -103,13 +109,19 @@ export const DocsDefaults: RawDocsType[] = [
     category: ["returns"],
     title: "Return policy on firearms.",
     description:
-      "We do not return firearms. Once transferred, it is yours. However we do purchases or consign firearms, and would be happy to tell you what we would buy it for.",
+      "We do not return firearms. Once transferred, it is yours. However, we do purchases or consign firearms, and would be happy to tell you what we would buy it for.",
   },
   {
     category: ["used-firearms"],
     title: "How can I sell you my firearm?",
     description:
       "You must bring in your firearm for a quote of how much we would pay you for it. As long as its unloaded, you are free to bring it in.",
+  },
+  {
+    category: ["used-firearms"],
+    title: "How much is your consignment fees?",
+    description:
+      "We charge 15% of the sales price for a minimum of $35 for consignment.",
   },
   {
     category: ["transfer"],

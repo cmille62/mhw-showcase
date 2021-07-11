@@ -21,7 +21,7 @@ import { StringInputProps } from "./index";
 
 interface Props extends StringInputProps<string[]> {
   label?: string;
-  fetchValues: () => Promise<string[]>;
+  values: string[];
   emptyMessage?: string;
 }
 
@@ -30,16 +30,15 @@ const minHeight = 64;
 const maxHeight = 240;
 const itemSize = 32;
 
-export const AsyncMultiSelectField: FunctionComponent<Props> = ({
+export const MultiSelectField: FunctionComponent<Props> = ({
   value,
   label,
   emptyMessage = "No available results",
   onChange,
-  fetchValues,
+  values,
   ...props
 }: Props) => {
   const [internal, setInternal] = useState<string[]>(value || []);
-  const [values, setValues] = useState<string[]>([]);
   const [targetWidth, setTargetWidth] = useState(0);
   const targetRef = createRef<HTMLDivElement>();
 
@@ -50,24 +49,8 @@ export const AsyncMultiSelectField: FunctionComponent<Props> = ({
   }, [targetRef]);
 
   useEffect(() => {
-    fetchValues().then((result) => {
-      setValues(result);
-    });
-  }, []);
-
-  useEffect(() => {
     setInternal(value || []);
   }, [value]);
-
-  //   const fuzzyFilter = () => {
-  //     if (internal) {
-  //       return fuzzaldrin.filter(values, internal);
-  //     } else {
-  //       return values;
-  //     }
-  //   };
-
-  //   const filtered = fuzzyFilter();
 
   return (
     <Field {...props}>
