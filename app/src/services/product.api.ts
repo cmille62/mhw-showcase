@@ -40,6 +40,10 @@ export const getBySKU = async function (value: string) {
   return getBy(value, PRODUCT_LOOKUP.SKU);
 };
 
+export const getByID = async function (value: string) {
+  return getBy(value, PRODUCT_LOOKUP.ID);
+};
+
 export const getBy = async function (value: string, type: string) {
   const url = `${REACT_APP_API_ROOT_URL}/products/${type}/${value}`;
 
@@ -74,6 +78,7 @@ export const api = {
   getBy,
   getByUPC,
   getBySKU,
+  getByID,
 
   getCount,
   getPagination,

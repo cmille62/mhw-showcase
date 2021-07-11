@@ -10,8 +10,8 @@ type Props = RouteComponentProps<{ id?: string }, {}, { product: any }>;
 
 export const EditPage: FunctionComponent<Props> = observer(
   ({ match, location }: Props) => {
-    const id = match.params.id;
-    const { product } = location.state;
+    const { id } = match.params;
+    const { product } = location.state || {};
     return (
       <ContentPane>
         <Navigation>

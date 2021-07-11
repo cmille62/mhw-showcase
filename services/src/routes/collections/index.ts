@@ -50,7 +50,7 @@ router.put("/:db/reset", (req: T, res) =>
   reset(req, res, getDb(req.params.db))
 );
 
-router.put("/:db/", (req: T<{ id: string }>, res) =>
+router.put("/:db/:id", (req: T<{ id: string }>, res) =>
   put(req, res, getDb(req.params.db))
 );
 

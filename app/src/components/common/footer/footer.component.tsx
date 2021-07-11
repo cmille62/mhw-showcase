@@ -17,7 +17,7 @@ const routes = [
     content: [
       {
         title: "FAQ",
-        ...Routes.Docs.FAQ,
+        ...Routes.Docs.Faq,
       },
     ],
   },

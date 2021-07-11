@@ -50,7 +50,7 @@ export const Routes = {
       path: formatRoute("/docs/home"),
       roles: [],
     },
-    FAQ: {
+    Faq: {
       path: formatRoute("/docs/faq"),
       roles: [],
     },
@@ -88,7 +88,7 @@ export const Routes = {
         roles: ADMIN_LIST,
       },
       Create: {
-        path: formatRoute("/admin/products/edit/"),
+        path: formatRoute("/admin/products/edit/new"),
         roles: ADMIN_LIST,
       },
       Import: {

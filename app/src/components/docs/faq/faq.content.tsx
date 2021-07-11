@@ -24,7 +24,7 @@ export const FaqContent: FunctionComponent = () => {
 
   return (
     <Page>
-      <InputWrapper iconBefore={FilterIcon} width={325}>
+      <InputWrapper iconBefore={FilterIcon}>
         <MultiSelectField
           values={options}
           onChange={(values) => setFilter(values)}

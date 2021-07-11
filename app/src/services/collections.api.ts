@@ -1,5 +1,6 @@
 import axios from "axios";
 import { REACT_APP_API_ROOT_URL } from "../utils";
+import { warn } from "../utils/alert";
 import { getConfig } from "./config";
 
 export async function getAll(collection: string) {
@@ -51,6 +52,7 @@ export async function put(collection: string, id: string, document: any) {
 
   try {
     const result = await axios.put(url, document);
+    warn(result);
     return { data: result.data, status: result.status };
   } catch (error) {
     return { status: 400 };
@@ -62,6 +64,7 @@ export async function post(collection: string, document: any) {
 
   try {
     const result = await axios.post(url, document);
+    warn(result);
     return { data: result.data, status: result.status };
   } catch (error) {
     return { status: 400 };

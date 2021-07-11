@@ -3,6 +3,7 @@ import { Heading, Pane } from "evergreen-ui";
 import { observer } from "mobx-react";
 import { Table } from "../../../common";
 import { useRootStore } from "../../../../stores";
+import { Routes, structureRoute } from "../../../../utils";
 
 const columns = [
   { title: "SKU", key: "sku", path: "sku" },
@@ -27,7 +28,14 @@ export const ViewAllForm: FunctionComponent = observer(() => {
         </Heading>
       </Pane>
 
-      <Table {...{ columns, data: productStore.products }} />
+      <Table
+        {...{ columns, data: productStore.products }}
+        link={(each: any) =>
+          structureRoute(Routes.Admin.Products.Edit, {
+            id: each._id,
+          })
+        }
+      />
     </Pane>
   );
 });

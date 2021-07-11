@@ -50,12 +50,13 @@ export interface Product {
   retail: string;
 }
 
-export type ProductLookupOptions = "sku" | "upc" | "mfg";
+export type ProductLookupOptions = "sku" | "upc" | "mfg" | "id";
 
 export const PRODUCT_LOOKUP: { [key: string]: ProductLookupOptions } = {
   SKU: "sku",
   UPC: "upc",
   MFG: "mfg",
+  ID: "id",
 };
 
 export type ProductLookupType = {

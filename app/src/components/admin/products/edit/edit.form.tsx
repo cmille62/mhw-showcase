@@ -1,12 +1,13 @@
 import React, { FunctionComponent, useEffect } from "react";
 import { Button, Heading, Pane } from "evergreen-ui";
-import { observer } from "mobx-react";
-import { Page } from "../../../common";
+import { ProductAPI } from "../../../../services";
 import { useRootStore } from "../../../../stores";
-import { Product } from "../../../../typings";
-import { cloneDeep, get, set } from "lodash";
 import { fetchFields } from "../../../../utils";
+import { Product } from "../../../../typings";
 import { InputController } from "./controller";
+import { cloneDeep, get, set } from "lodash";
+import { Page } from "../../../common";
+import { observer } from "mobx-react";
 import { toJS } from "mobx";
 
 interface Props {
@@ -20,14 +21,16 @@ export const EditForm: FunctionComponent<Props> = observer(
     const product: Partial<Product> = productStore.selected || {};
     const fields = fetchFields(product.category);
 
-    console.log(toJS(product));
+    console.log(id, toJS(product));
 
     useEffect(() => {
-      if (!productStore.selected) {
+      if (id) {
+        ProductAPI.getByID(id).then((result) => {
+          productStore.select(result.data);
+        });
+      } else if (!productStore.selected) {
         const result = props.product || {};
         productStore.select(result);
-      } else {
-        //TODO: Fetch from id
       }
     }, [id]);
 

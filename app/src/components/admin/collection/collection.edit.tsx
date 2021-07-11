@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
-import { Button, Pane } from "evergreen-ui";
+import { Button, Pane, Spinner } from "evergreen-ui";
 import {
   Input,
   TextareaField,
@@ -27,6 +27,7 @@ export const CollectionEdit: FunctionComponent<Props> = ({ match }: Props) => {
     } else {
       CollectionAPI.get(collection, id).then((result) => {
         setData(result.data || {});
+        setLoading(false);
       });
     }
   }, []);
@@ -85,13 +86,14 @@ export const CollectionEdit: FunctionComponent<Props> = ({ match }: Props) => {
           onClick={async () => {
             setLoading(true);
             if (id === "new") {
-              await CollectionAPI.post(collection, {});
+              await CollectionAPI.post(collection, data);
             } else {
-              await CollectionAPI.put(collection, id, {});
+              await CollectionAPI.put(collection, id, data);
             }
             setLoading(false);
           }}
         >
+          {data && loading && <Spinner size={16} />}
           Save
         </Button>
       </ControlPane>
